@@ -21,7 +21,7 @@ body {
     line-height: 100px;
     background: linear-gradient(#27EF9F, #0DB8DE);
     background-clip: text;
-    /* -webkit-background-clip: text; */
+    -webkit-background-clip: text;
     color: transparent;
 }
 
