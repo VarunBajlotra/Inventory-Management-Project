@@ -1,10 +1,11 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
-const {Users} = require('./users')
+const {Users} = require('./db')
 
 passport.use(new LocalStrategy(
     function(username,password,done){
+        console.log(username,password)
         Users.findOne({
             where:{username:username}
         }).then((user)=>{

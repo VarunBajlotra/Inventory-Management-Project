@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize')
 
-const dbuser = new Sequelize({
+const database = new Sequelize({
     dialect:'sqlite',
-    storage: __dirname+'/usersdb.db'
+    storage: __dirname+'/database.db'
 })
 
-const Users = dbuser.define('dbuser',{
+const Users = database.define('users',{
     username:{
         type:Sequelize.STRING(30),
         unique:true,
@@ -18,9 +18,13 @@ const Users = dbuser.define('dbuser',{
     email:{
         type:Sequelize.STRING(50),
         allowNull:false
+    },
+    type:{
+        type:Sequelize.STRING(15)
     }
 })
-dbuser.sync().then(()=>{
+
+database.sync().then(()=>{
     console.log('DataBase Structure Ready Bancho')
 })
 
