@@ -1,13 +1,17 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
-const {Users} = require('./db')
+const Users = require('./db').Users
 
-passport.use(new LocalStrategy(
-    function(username,password,done){
-        console.log(username,password)
+passport.use(new LocalStrategy( {
+        usernameField: 'username',
+        passwordField: 'password'
+    }
+    ,function(username,password,done){
+        console.log(username)
         Users.findOne({
-            where:{username:username}
+            where:
+            {username:username}
         }).then((user)=>{
             if(!user){
                 return done(null,false)
@@ -34,4 +38,4 @@ passport.deserializeUser(
     }
 )
 
-module.exports=passport
+module.exports = passport

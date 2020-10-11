@@ -3,7 +3,7 @@ const passport = require('passport')
 const Users = require('../db').Users
 
 route.get('/signup',(req,res)=>{
-    res.render('../public/consumer')
+    res.render('../public/consumer/login-signup')
 })
 
 route.post('/signup',(req,res)=>{
@@ -22,7 +22,7 @@ route.post('/signup',(req,res)=>{
 })
 
 route.get('/login',(req,res)=>{
-    res.render('../public/consumer')
+    res.render('../public/consumer/login-signup')
 })
 
 route.post('/login',
@@ -31,6 +31,16 @@ route.post('/login',
         failureRedirect:'/user/login'
     })
 )
+
+route.get('/profile',(req,res)=>{
+    console.log('In profile')
+    if(!req.user){
+        return res.redirect('/user/login')
+    }
+    res.render('../public/profile',{
+        user:req.user
+    })
+})
 
 route.post('/profile',(req,res)=>{
     console.log('In profile')

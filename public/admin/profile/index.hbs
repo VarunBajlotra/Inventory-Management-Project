@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Total Products : {{products.length}}</h1>
+    <h1>Current Users : {{users.length}}</h1>
+    <h1>Transactions Count : {{transactions.length}}</h1>
+    <form action="/product/add" method="GET">
+        <input type="submit" value="Add Product">
+    </form><br>
+    <h1>Inventory</h1>
+    <table border=2 cellspacing="5" cellpadding="5">
+        <thead>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Company Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Description</th>
+        </thead>
+        {{#each products as |item|}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.companyname}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.description}}</td>
+            </tr>
+        {{/each}}
+    </table>
+    <h1>Users</h1>
+    <table border=2 cellspacing="5" cellpadding="5">
+        <thead>
+            <th>Username</th>
+            <th>Email</th>
+        </thead>
+        {{#each users as |item|}}
+            <tr>
+                <td>{{item.username}}</td>
+                <td>{{item.email}}</td>
+            </tr>
+        {{/each}}
+    </table>
+    <h1>Transaction History</h1>
+    <table border=2 cellspacing="5" cellpadding="5">
+        <thead>
+            <th>Transaction ID</th>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Bill Amount</th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Phone No.</th>
+            <th>Address</th>
+        </thead>
+        {{#each transactions as |item|}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.productid}}</td>
+                <td>{{item.productname}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.billamount}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.phoneno}}</td>
+                <td>{{item.address}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</body>
+</html>
