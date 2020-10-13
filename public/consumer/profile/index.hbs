@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/user/logout">Log Out</a>
+    <h1>Personal Transactions</h1>
+    <table border=2 cellspacing="5" cellpadding="5">
+        <thead>
+            <th>Transaction ID</th>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity Ordered</th>
+            <th>Bill Amount</th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Phone No.</th>
+            <th>Address</th>
+        </thead>
+        {{#each personal_transactions as |item|}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.productid}}</td>
+                <td>{{item.productname}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.quantityordered}}</td>
+                <td>{{item.billamount}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.phoneno}}</td>
+                <td>{{item.address}}</td>
+            </tr>
+        {{/each}}
+    </table>
+    <h1>Available Items</h1>
+    <table border=2 cellspacing="5" cellpadding="5">
+        <thead>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Company Name</th>
+            <th>Price</th>
+            <th>Stock Available</th>
+            <th>Description</th>
+            <th>Buy</th>
+        </thead>
+        {{#each products as |item|}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.companyname}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.description}}</td>
+                <td>
+                    <form action="/user/buy" method="POST">
+                        <input type="number" value="{{item.id}}" name="id" hidden>
+                        <input type="submit" value="Buy">
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</body>
+</html>

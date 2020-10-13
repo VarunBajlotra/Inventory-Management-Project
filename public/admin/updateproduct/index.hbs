@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/product/updateindb" method="POST">
+        <h1>Product ID : {{entry.id}}<input type="number" value="{{entry.id}}" name="id" hidden></h1>
+        <h1>Product Name : <input type="text" value="{{entry.name}}" name="name"></h1>
+        <h1>Company Name : <input type="text" value="{{entry.companyname}}" name="companyname"></h1>
+        <h1>Price : <input type="number" value="{{entry.price}}" name="price"></h1>
+        <h1>Quantity : <input type="number" value="{{entry.quantity}}" name="quantity"></h1>
+        <h1>Description : <input type="text" value="{{entry.description}}" name="description"></h1>
+        <input type="submit" value="Update Details">
+    </form>
+</body>
+</html>

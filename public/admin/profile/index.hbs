@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="/admin/logout">Log Out</a>
     <h1>Total Products : {{products.length}}</h1>
     <h1>Current Users : {{users.length}}</h1>
     <h1>Transactions Count : {{transactions.length}}</h1>
@@ -21,6 +22,8 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Description</th>
+            <th>Update</th>
+            <th>Delete</th>
         </thead>
         {{#each products as |item|}}
             <tr>
@@ -30,6 +33,18 @@
                 <td>{{item.price}}</td>
                 <td>{{item.quantity}}</td>
                 <td>{{item.description}}</td>
+                <td>
+                    <form action="/product/update" method="POST">
+                        <input type="text" name="id" value="{{item.id}}" hidden>
+                        <input type="submit" value="Update Details">
+                    </form>
+                </td>
+                <td>
+                    <form action="/product/delete" method="POST">
+                        <input type="text" name="id" value="{{item.id}}" hidden>
+                        <input type="submit" value="Delete Product">
+                    </form>
+                </td>
             </tr>
         {{/each}}
     </table>
@@ -52,7 +67,8 @@
             <th>Transaction ID</th>
             <th>Product ID</th>
             <th>Product Name</th>
-            <th>Quantity</th>
+            <th>Price</th>
+            <th>Quantity Ordered</th>
             <th>Bill Amount</th>
             <th>Username</th>
             <th>Name</th>
@@ -64,7 +80,8 @@
                 <td>{{item.id}}</td>
                 <td>{{item.productid}}</td>
                 <td>{{item.productname}}</td>
-                <td>{{item.quantity}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.quantityordered}}</td>
                 <td>{{item.billamount}}</td>
                 <td>{{item.username}}</td>
                 <td>{{item.name}}</td>

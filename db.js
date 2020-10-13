@@ -50,14 +50,17 @@ const Products = database.define('products',{
 const Transactions = database.define('transactions',{
     productid:{
         type:Sequelize.INTEGER,
-        unique:true,
         allowNull:false
     },
     productname:{
         type:Sequelize.STRING(40),
         allowNull:false
     },
-    quantity:{
+    price:{
+        type:Sequelize.INTEGER,
+        allowNull:false
+    },
+    quantityordered:{
         type:Sequelize.INTEGER,
         allowNull:false
     },

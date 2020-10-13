@@ -10,7 +10,7 @@ route.get('/login',(req,res)=>{
 route.post('/login',
     passport.authenticate('local',{
         successRedirect:'/admin/profile',
-        failureRedirect:'/admin/abcd'
+        failureRedirect:'/admin/login'
     })
     ,function(req,res){
         console.log("Logging In User: ")
@@ -58,11 +58,10 @@ route.get('/profile',(req,res)=>{
             products,users,transactions
         })
     },1000)
-    
 })
 
 route.post('/profile',(req,res)=>{
-    console.log('In profile')
+    console.log('In profile post')
     if(!req.user){
         return res.redirect('/admin/login')
     }
@@ -70,6 +69,12 @@ route.post('/profile',(req,res)=>{
         user:req.user
     })
 })
+
+route.get('/logout',function(req,res){
+    console.log("Logging Out " + req.user.username);
+    req.logout();
+    res.redirect('/')
+});
 
 module.exports={
     route

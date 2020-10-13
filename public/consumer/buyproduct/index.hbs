@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/user/order" method="POST">
+        <h1>Product ID : {{entry.id}}</h1><input type="number" value="{{entry.id}}" name="productid" hidden>
+        <h1>Product Name : {{entry.name}}</h1><input type="text" value="{{entry.name}}" name="productname" hidden>
+        <h1>Company Name : {{entry.companyname}}</h1>
+        <h1>Price : {{entry.price}}</h1><input type="number" value="{{entry.price}}" name="price" hidden>
+        <h1>Stock Available : {{entry.quantity}}</h1><input type="number" value="{{entry.quantity}}" name="stockavailable" hidden>
+        <h1>Description : {{entry.description}}</h1>
+        <h3>Enter No. of Items to Order : <input type="number" name="quantityordered"></h3>
+        <h3>Enter Name : <input type="text" name="name"></h3>
+        <h3>Enter Phone No. : <input type="text" name="phoneno"></h3>
+        <h3>Enter Address : <input type="text" name="address"></h3>
+        <input type="submit" value="Place Order">
+    </form>
+</body>
+</html>
