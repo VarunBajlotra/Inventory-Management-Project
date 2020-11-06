@@ -10,6 +10,7 @@
     <h1>Total Products : {{products.length}}</h1>
     <h1>Current Users : {{users.length}}</h1>
     <h1>Transactions Count : {{transactions.length}}</h1>
+    <h1>Product Requests : {{tempproducts.length}}</h1>
     <form action="/product/add" method="GET">
         <input type="submit" value="Add Product">
     </form><br>
@@ -19,9 +20,11 @@
             <th>Product ID</th>
             <th>Product Name</th>
             <th>Company Name</th>
-            <th>Price</th>
+            <th>Cost Price</th>
+            <th>Selling Price</th>
             <th>Quantity</th>
             <th>Description</th>
+            <th>Time Of Addition</th>
             <th>Update</th>
             <th>Delete</th>
         </thead>
@@ -30,9 +33,11 @@
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.companyname}}</td>
-                <td>{{item.price}}</td>
+                <td>{{item.costprice}}</td>
+                <td>{{item.sellingprice}}</td>
                 <td>{{item.quantity}}</td>
                 <td>{{item.description}}</td>
+                <td>{{item.time}}</td>
                 <td>
                     <form action="/product/update" method="POST">
                         <input type="text" name="id" value="{{item.id}}" hidden>
@@ -70,6 +75,7 @@
             <th>Price</th>
             <th>Quantity Ordered</th>
             <th>Bill Amount</th>
+            <th>Time Of Order</th>
             <th>Username</th>
             <th>Name</th>
             <th>Phone No.</th>
@@ -83,10 +89,83 @@
                 <td>{{item.price}}</td>
                 <td>{{item.quantityordered}}</td>
                 <td>{{item.billamount}}</td>
+                <td>{{item.time}}</td>
                 <td>{{item.username}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.phoneno}}</td>
                 <td>{{item.address}}</td>
+            </tr>
+        {{/each}}
+    </table>
+    <h1>Product Requests</h1>
+    <table border=2 cellspacing="5" cellpadding="5">
+        <thead>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Company Name</th>
+            <th>Cost Price</th>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th>Time Of Request</th>
+            <th>User who Requested</th>
+            <th>User's Mail</th>
+            <th>Add to Inventory</th>
+            <th>Delete Request</th>
+        </thead>
+        {{#each tempproducts as |item|}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.companyname}}</td>
+                <td>{{item.costprice}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.time}}</td>
+                <td>{{item.user}}</td>
+                <td>{{item.usermail}}</td>
+                <td>
+                    <form action="/admin/addtoinventory" method="POST">
+                        <input type="text" name="sellingprice" placeholder="Enter Selling Price" required>
+                        <input type="text" name="id" value="{{item.id}}" hidden>
+                        <input type="submit" value="Add to Inventory">
+                    </form>
+                </td>
+                <td>
+                    <form action="/admin/deleterequest" method="POST">
+                        <input type="text" name="id" value="{{item.id}}" hidden>
+                        <input type="submit" value="Delete Request">
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+
+    <h1>Product Request Log</h1>
+    <table border=2 cellspacing="5" cellpadding="5">
+        <thead>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Company Name</th>
+            <th>Cost Price</th>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th>Time Of Request</th>
+            <th>User who Requested</th>
+            <th>User's Mail</th>
+            <th>Status</th>
+        </thead>
+        {{#each requestlog as |item|}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.companyname}}</td>
+                <td>{{item.costprice}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.time}}</td>
+                <td>{{item.user}}</td>
+                <td>{{item.usermail}}</td>
+                <td>{{item.status}}</td>
             </tr>
         {{/each}}
     </table>

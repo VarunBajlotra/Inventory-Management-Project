@@ -1,5 +1,6 @@
 const route = require('express').Router()
 const Products = require("../db").Products
+const moveFile = require('move-file')
 
 route.get('/add',(req,res)=>{
     if(!req.user){
@@ -15,10 +16,24 @@ route.post('/add',(req,res)=>{
     Products.create({
         name:req.body.name,
         companyname:req.body.companyname,
-        price:req.body.price,
+        costprice:req.body.costprice,
+        sellingprice:req.body.sellingprice,
         quantity:req.body.quantity,
-        description:req.body.description
-    }).then(()=>{
+        description:req.body.description,
+        time:new Date().toLocaleString()
+    }).then((entry)=>{
+        setTimeout(()=>{
+            //For Varun
+            (async () => {
+                await moveFile('C:/Users/varun/Downloads/product.jpg', './public/admin/productimages/'+entry.dataValues.id+'.jpg')
+                console.log('The file has been moved')
+            })();
+            //For Vaibhav
+            // (async () => {
+            //     await moveFile(Location of photo in downloads, './public/admin/productimages/'+entry.dataValues.id+'.jpg')
+            //     console.log('The file has been moved')
+            // })();
+        },2000)
         res.redirect('/admin/profile')
     }).catch((err)=>{
         console.log(err)

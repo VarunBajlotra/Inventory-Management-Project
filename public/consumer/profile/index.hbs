@@ -6,7 +6,38 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/user/logout">Log Out</a>
+    <a href="/user/logout">Log Out</a><br><br>
+    <a href="/user/addproduct">Request to Add Product</a>
+
+    <h1>Available Items</h1>
+    <table border=2 cellspacing="5" cellpadding="5">
+        <thead>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Company Name</th>
+            <th>Price</th>
+            <th>Stock Available</th>
+            <th>Description</th>
+            <th>Buy</th>
+        </thead>
+        {{#each products as |item|}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.companyname}}</td>
+                <td>{{item.sellingprice}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.description}}</td>
+                <td>
+                    <form action="/user/buy" method="POST">
+                        <input type="number" value="{{item.id}}" name="id" hidden>
+                        <input type="submit" value="Buy">
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+
     <h1>Personal Transactions</h1>
     <table border=2 cellspacing="5" cellpadding="5">
         <thead>
@@ -36,31 +67,29 @@
             </tr>
         {{/each}}
     </table>
-    <h1>Available Items</h1>
+
+    <h1>My Product Requests</h1>
     <table border=2 cellspacing="5" cellpadding="5">
         <thead>
             <th>Product ID</th>
             <th>Product Name</th>
             <th>Company Name</th>
-            <th>Price</th>
-            <th>Stock Available</th>
+            <th>Cost Price</th>
+            <th>Quantity</th>
             <th>Description</th>
-            <th>Buy</th>
+            <th>Time Of Request</th>
+            <th>Status</th>
         </thead>
-        {{#each products as |item|}}
+        {{#each tempproducts as |item|}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.companyname}}</td>
-                <td>{{item.price}}</td>
+                <td>{{item.costprice}}</td>
                 <td>{{item.quantity}}</td>
                 <td>{{item.description}}</td>
-                <td>
-                    <form action="/user/buy" method="POST">
-                        <input type="number" value="{{item.id}}" name="id" hidden>
-                        <input type="submit" value="Buy">
-                    </form>
-                </td>
+                <td>{{item.time}}</td>
+                <td>{{item.status}}</td>
             </tr>
         {{/each}}
     </table>
