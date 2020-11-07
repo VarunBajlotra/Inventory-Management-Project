@@ -64,13 +64,9 @@ route.get('/profile',(req,res)=>{
     })
     TempProducts.findAll({
         where:{
-            $or:[
-                {
-                    status:'Accepted'
-                },
-                {
-                    status:'Declined'
-                }
+            status:[
+                'Accepted',
+                'Declined'
             ]
         }
     }).then((entries)=>{
