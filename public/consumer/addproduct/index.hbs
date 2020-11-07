@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/user/addproduct" method="POST">
+        Name: <input type="text" name="name" id="name"><br><br>
+        Company Name: <input type="text" name="companyname"><br><br>
+        Cost Price: <input type="number" name="costprice"><br><br>
+        Quantity: <input type="number" name="quantity"><br><br>
+        Description: <input type="text" name="description"><br><br>
+        Upload Product Pic : <input type="file" accept="image/*" name="photo" id="photo"><br><br>
+        <button type="submit" id="submit">Add Product</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../../consumer/addproduct/script.js"></script>
+</body>
+</html>
