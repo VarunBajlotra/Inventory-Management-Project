@@ -34,7 +34,11 @@ const Products = database.define('products',{
         type:Sequelize.STRING(40),
         allowNull:false
     },
-    price:{
+    costprice:{
+        type:Sequelize.INTEGER,
+        allowNull:false
+    },
+    sellingprice:{
         type:Sequelize.INTEGER,
         allowNull:false
     },
@@ -44,6 +48,9 @@ const Products = database.define('products',{
     },
     description:{
         type:Sequelize.STRING(400)
+    },
+    time:{
+        type:Sequelize.STRING(40)
     }
 })
 
@@ -68,6 +75,9 @@ const Transactions = database.define('transactions',{
         type:Sequelize.INTEGER,
         allowNull:false
     },
+    time:{
+        type:Sequelize.STRING(40)
+    },
     username:{
         type:Sequelize.STRING(40),
         allowNull:false
@@ -86,10 +96,49 @@ const Transactions = database.define('transactions',{
     }
 })
 
+const TempProducts = database.define('tempproducts',{
+    name:{
+        type:Sequelize.STRING(40),
+        allowNull:false
+    },
+    companyname:{
+        type:Sequelize.STRING(40),
+        allowNull:false
+    },
+    costprice:{
+        type:Sequelize.INTEGER,
+        allowNull:false
+    },
+    sellingprice:{
+        type:Sequelize.INTEGER
+    },
+    quantity:{
+        type:Sequelize.INTEGER,
+        allowNull:false
+    },
+    description:{
+        type:Sequelize.STRING(400)
+    },
+    time:{
+        type:Sequelize.STRING(40)
+    },
+    user:{
+        type:Sequelize.STRING(40),
+        allowNull:false
+    },
+    usermail:{
+        type:Sequelize.STRING(40),
+        allowNull:false
+    },
+    status:{
+        type:Sequelize.STRING(40)
+    }
+})
+
 database.sync().then(()=>{
     console.log('DataBase Structure Ready')
 })
 
 module.exports={
-    Users,Products,Transactions
+    Users,Products,Transactions,TempProducts
 }
