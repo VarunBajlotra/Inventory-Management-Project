@@ -3,20 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Profile</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
+
+    <div class="h2 text-center">Welcome To The Admin Page</div>
     <a href="/admin/logout">Log Out</a>
-    <h1>Total Products : {{products.length}}</h1>
-    <h1>Current Users : {{users.length}}</h1>
-    <h1>Transactions Count : {{transactions.length}}</h1>
-    <h1>Product Requests : {{tempproducts.length}}</h1>
+    
+    {{!---------------------------------------------------------------------------Entry Cards--------------------------------------------------------------------------------- --}}
+            
+    <div class="row">
+        <div class="col-3 s4 m3">
+            <div class="card ">
+                <div class="cardImage">
+                    <img src="../../Images/inventory.jpg">
+                </div>
+                <div class="card-content ">
+                    <span class="h3 font-weight-bold">Total Products : {{products.length}} </span>
+                    <a class=" float-right btn-floating  waves-effect waves-light red"><i class="material-icons-right">+</i></a>
+                    <br><br>
+                    <p>These number of products are available in your Inventory</p>
+                </div>
+            </div>
+        </div>
+    
+
+   
+        <div class="col-3 s5 m3">
+            <div class="card ">
+                <div class="cardImage">
+                    <img   src="../../Images/users.jpg">
+                </div>
+                <div class="card-content ">
+                    <span class="h3 font-weight-bold">Total Users : {{users.length}}  </span>
+                    <a class=" float-right btn-floating  waves-effect waves-light red"><i class="material-icons-right">+</i></a>
+                    <br><br>
+                    <p>These number of users have registered on your website</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 s5 m3">
+            <div class="card ">
+                <div class="cardImage">
+                    <img   src="../../Images/transaction2.jpg">
+                </div>
+                <div class="card-content ">
+                    <span class="h3 font-weight-bold">Transactions : {{transactions.length}}  </span>
+                    <a class=" float-right btn-floating  waves-effect waves-light red"><i class="material-icons-right">+</i></a>
+                    <br><br>
+                    <p>Total number of successful transactions from your inventory</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 s5 m3">
+            <div class="card ">
+                <div class="cardImage">
+                    <img   src="../../Images/profit.jpg">
+                </div>
+                <div class="card-content ">
+                    <span class="h3 font-weight-bold">Total Profit : </span>
+                    <a class=" float-right btn-floating  waves-effect waves-light red"><i class="material-icons-right">+</i></a>
+                    <br><br>
+                    <p>Total Profit Earned from sale of all items</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- --------------------------------------------Tables----------------------------------------------------------------- --}}
+    
+    {{!-- <h1>Transactions Count : {{transactions.length}}</h1> --}}
     <form action="/product/add" method="GET">
         <input type="submit" value="Add Product">
     </form><br>
     <h1>Inventory</h1>
-    <table border=2 cellspacing="5" cellpadding="5">
-        <thead>
+    <table class="table">
+        <thead class="thead-dark">
             <th>Product ID</th>
             <th>Product Image</th>
             <th>Product Name</th>
@@ -56,21 +130,24 @@
         {{/each}}
     </table>
     <h1>Users</h1>
-    <table border=2 cellspacing="5" cellpadding="5">
-        <thead>
-            <th>Username</th>
-            <th>Email</th>
+    <table class="table text-light text-center" id="userTable" >
+        <thead id="userHeader" class="thead-dark">
+            <th class="userHead">Username</th>
+            <th class="userHead">Email</th>
         </thead>
-        {{#each users as |item|}}
-            <tr>
-                <td>{{item.username}}</td>
-                <td>{{item.email}}</td>
-            </tr>
-        {{/each}}
+        <tbody >
+            {{#each users as |item|}}
+                <tr>
+                    <td class="username">{{item.username}}</td>
+                    <td class="email">{{item.email}}</td>
+                    
+                </tr>
+            {{/each}}
+        </tbody>
     </table>
     <h1>Transaction History</h1>
-    <table border=2 cellspacing="5" cellpadding="5">
-        <thead>
+    <table class="table text-center" id="transactionTable" >
+        <thead class="thead-dark">
             <th>Transaction ID</th>
             <th>Product ID</th>
             <th>Product Image</th>
@@ -178,4 +255,5 @@
         {{/each}}
     </table>
 </body>
+    <link rel="stylesheet" href="style.css">
 </html>
