@@ -2,6 +2,7 @@ const route = require('express').Router()
 const Products = require("../db").Products
 const moveFile = require('move-file')
 const del = require('del')
+const fs = require('fs')
 
 route.get('/add',(req,res)=>{
     if(!req.user){
@@ -34,7 +35,7 @@ route.post('/add',(req,res)=>{
             //     await moveFile(Location of photo in downloads, './public/admin/productimages/'+entry.dataValues.id+'.jpg')
             //     console.log('The file has been moved')
             // })();
-        },2000)
+        },1000)
         res.redirect('/admin/profile')
     }).catch((err)=>{
         console.log(err)
@@ -84,7 +85,8 @@ route.post('/updateindb',(req,res)=>{
     Products.update({
         name:req.body.name,
         companyname:req.body.companyname,
-        price:req.body.price,
+        costprice:req.body.costprice,
+        sellingprice:req.body.sellingprice,
         quantity:req.body.quantity,
         description:req.body.description
     },{
@@ -92,6 +94,43 @@ route.post('/updateindb',(req,res)=>{
             id:req.body.id
         }
     }).then(()=>{
+        setTimeout(()=>{
+            //For Varun
+            fs.access('C:/Users/varun/Downloads/product.jpg', fs.F_OK, (err) => {
+                if (err) {
+                  console.log('Error here')
+                  console.log(err)
+                  return
+                }
+                (async () => {
+                    await del(['./public/admin/productimages/'+req.body.id+'.jpg']);
+                })();
+                setTimeout(()=>{
+                    (async () => {
+                        await moveFile('C:/Users/varun/Downloads/product.jpg', './public/admin/productimages/'+req.body.id+'.jpg')
+                        console.log('The file has been moved')
+                    })();
+                },500)
+            })
+            //For Vaibhav
+            // fs.access(download product.jpg, fs.F_OK, (err) => {
+            //     if (err) {
+            //       console.log('Error here')
+            //       console.log(err)
+            //       return
+            //     }
+            //     console.log('Is this executing?');
+            //     (async () => {
+            //         await del(['./public/admin/productimages/'+req.body.id+'.jpg']);
+            //     })();
+            //     setTimeout(()=>{
+            //         (async () => {
+            //             await moveFile(download product.jpg, './public/admin/productimages/'+req.body.id+'.jpg')
+            //             console.log('The file has been moved')
+            //         })();
+            //     },500)
+            // })
+        },1000)
         res.redirect('/admin/profile')
     }).catch((err)=>{
         console.log(err)

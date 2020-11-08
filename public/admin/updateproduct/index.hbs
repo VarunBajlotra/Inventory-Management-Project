@@ -14,7 +14,36 @@
         <h1>Selling Price : <input type="number" value="{{entry.sellingprice}}" name="sellingprice"></h1>
         <h1>Quantity : <input type="number" value="{{entry.quantity}}" name="quantity"></h1>
         <h1>Description : <input type="text" value="{{entry.description}}" name="description"></h1>
-        <input type="submit" value="Update Details">
+        <h1>Current Pic : <img src='../../admin/productimages/{{entry.id}}.jpg' width='400'></h1>
+        <h1>Update Product Pic : <input type="file" accept="image/*" id="photo"></h1>
+        <input type="submit" value="Update Details" id="submit">
     </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    function downloadImage(url) {
+        var tag = document.createElement('a')
+        tag.href = url
+        tag.target = '_blank'
+        tag.download = 'product.jpg'
+        document.body.appendChild(tag)
+        tag.click()
+        document.body.removeChild(tag)
+    }
+    $(()=>{
+        var element = $('#photo')[0]
+        var url
+        element.addEventListener('change', function() { 
+            url = URL.createObjectURL(element.files[0]); 
+            console.log(url)
+        })
+        
+        $('#submit').click(()=>{
+            console.log(url)
+            if(url!=''){
+                downloadImage(url)
+            }
+        })
+    })
+    </script>
 </body>
 </html>
