@@ -8,6 +8,7 @@
 <body>
     <form action="/user/order" method="POST">
         <h1>Product ID : {{entry.id}}</h1><input type="number" value="{{entry.id}}" name="productid" hidden>
+        <img src='../../admin/productimages/{{entry.id}}.jpg' width='200'>
         <h1>Product Name : {{entry.name}}</h1><input type="text" value="{{entry.name}}" name="productname" hidden>
         <h1>Company Name : {{entry.companyname}}</h1>
         <h1>Price : {{entry.sellingprice}}</h1><input type="number" value="{{entry.sellingprice}}" name="price" hidden>
