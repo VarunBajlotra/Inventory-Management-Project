@@ -1,6 +1,7 @@
 const route = require('express').Router()
 const Products = require("../db").Products
 const moveFile = require('move-file')
+const del = require('del')
 
 route.get('/add',(req,res)=>{
     if(!req.user){
@@ -45,6 +46,9 @@ route.post('/delete',(req,res)=>{
     if(!req.user){
         return res.redirect('/admin/login')
     }
+    (async () => {
+        await del(['./public/admin/productimages/'+req.body.id+'.jpg']);
+    })();
     Products.destroy({
         where:{
             id:req.body.id

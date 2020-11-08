@@ -1,7 +1,7 @@
 const route = require('express').Router()
 const {Users,Products,Transactions,TempProducts} = require('../db')
 const passport = require('passport')
-const moveFile = require('move-file')
+const cpFile = require('cp-file')
 
 route.get('/login',(req,res)=>{
     res.render('../public/admin/login')
@@ -108,7 +108,7 @@ route.post('/addtoinventory',(req,res)=>{
                 }
             });
             (async () => {
-                await moveFile('./public/consumer/productimagestemp/'+req.body.id+'.jpg', './public/admin/productimages/'+entry.dataValues.id+'.jpg')
+                await cpFile('./public/consumer/productimagestemp/'+req.body.id+'.jpg', './public/admin/productimages/'+entry.dataValues.id+'.jpg')
                 console.log('The file has been moved')
             })();
             res.redirect('/admin/profile')

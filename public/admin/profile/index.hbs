@@ -18,6 +18,7 @@
     <table border=2 cellspacing="5" cellpadding="5">
         <thead>
             <th>Product ID</th>
+            <th>Product Image</th>
             <th>Product Name</th>
             <th>Company Name</th>
             <th>Cost Price</th>
@@ -31,6 +32,7 @@
         {{#each products as |item|}}
             <tr>
                 <td>{{item.id}}</td>
+                <td><img src='../../admin/productimages/{{item.id}}.jpg' width='200'></td>
                 <td>{{item.name}}</td>
                 <td>{{item.companyname}}</td>
                 <td>{{item.costprice}}</td>
@@ -71,6 +73,7 @@
         <thead>
             <th>Transaction ID</th>
             <th>Product ID</th>
+            <th>Product Image</th>
             <th>Product Name</th>
             <th>Price</th>
             <th>Quantity Ordered</th>
@@ -85,6 +88,7 @@
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.productid}}</td>
+                <td><img src='../../admin/productimages/{{item.productid}}.jpg' width='200'></td>
                 <td>{{item.productname}}</td>
                 <td>{{item.price}}</td>
                 <td>{{item.quantityordered}}</td>
@@ -101,6 +105,7 @@
     <table border=2 cellspacing="5" cellpadding="5">
         <thead>
             <th>Product ID</th>
+            <th>Product Image</th>
             <th>Product Name</th>
             <th>Company Name</th>
             <th>Cost Price</th>
@@ -115,6 +120,7 @@
         {{#each tempproducts as |item|}}
             <tr>
                 <td>{{item.id}}</td>
+                <td><img src='../../consumer/productimagestemp/{{item.id}}.jpg' width='200'></td>
                 <td>{{item.name}}</td>
                 <td>{{item.companyname}}</td>
                 <td>{{item.costprice}}</td>
@@ -145,6 +151,7 @@
         <thead>
             <th>Product ID</th>
             <th>Product Name</th>
+            <th>Product Image</th>
             <th>Company Name</th>
             <th>Cost Price</th>
             <th>Quantity</th>
@@ -157,6 +164,7 @@
         {{#each requestlog as |item|}}
             <tr>
                 <td>{{item.id}}</td>
+                <td><img src='../../consumer/productimagestemp/{{item.id}}.jpg' width='200'></td>
                 <td>{{item.name}}</td>
                 <td>{{item.companyname}}</td>
                 <td>{{item.costprice}}</td>
