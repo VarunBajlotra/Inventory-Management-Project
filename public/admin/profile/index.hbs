@@ -16,23 +16,74 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
 
+     {{!-- ---------------------------------------------  NAV BAR STARTS------------------------------------------------- --}}
+    <nav class="navbar navbar-expand-lg bg-dark styleNav" >
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+            {{!-- --------------------------------------------- Restaurant Logo & Name ------------------------------------ --}}
+            <ul class="navbar-brand navbar-nav mr-auto">
+                <a  class="navbar-brand" href="../../landing/index.html">
+                    <span id="dtu" class="nav-item">Inventory Manager</span> 
+                </a>
+            </ul>
+
+
+            {{!----------------------------------------------- BUTTONS ---------------------------------------------------}}
+            <ul class="navbar-nav">
+
+                {{!----------------------------------------------- HOME ---------------------------------------------------- --}}
+                <li class="nav-item active">
+                    <a class="nav-link xyz" id="home" href="/">
+                        Home
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                        </svg>
+                    </a>
+                </li>                 
+
+    
+            {{!-- -------------------------------------------------UserName---------------------------------------------------}}
+            <li class="nav-item active "> 
+                <span class="xyz nav-link" id="user"></span>
+            </li>
+            
+            {{!--  --------------------------------------------- LOGOUT ---------------------------------------------------}}
+                <li class="nav-item active">
+                    <a id="logout" class="nav-link xyz" href="/admin/logout">
+                    Logout
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-door-open" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M1 15.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM11.5 2H11V1h.5A1.5 1.5 0 0 1 13 2.5V15h-1V2.5a.5.5 0 0 0-.5-.5z"/>
+                        <path fill-rule="evenodd" d="M10.828.122A.5.5 0 0 1 11 .5V15h-1V1.077l-6 .857V15H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117z"/>
+                        <path d="M8 9c0 .552.224 1 .5 1s.5-.448.5-1-.224-1-.5-1-.5.448-.5 1z"/>
+                    </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {{!----------------------------------------------- NAV BAR ENDS ------------------------------------------------- --}}
     <div class="h2 text-center">Welcome To The Admin Page</div>
     <a href="/admin/logout">Log Out</a>
     
     {{!---------------------------------------------------------------------------Entry Cards--------------------------------------------------------------------------------- --}}
             
-    <div class="row">
+    <div class="row" id="adminCard">
         <div class="col-3 s4 m3">
-            <div class="card ">
+            <div class="card hoverable ">
                 <div class="cardImage">
                     <img src="../../Images/inventory.jpg">
                 </div>
                 <div class="card-content ">
-                    <span class="h3 font-weight-bold">Total Products : {{products.length}} </span>
-                    <a class=" float-right btn-floating  waves-effect waves-light red"><i class="material-icons-right">+</i></a>
+                    <span class="h4 font-weight-bold">Total Products : {{products.length}} </span>
+                    <a><i class=" btn-floating material-icons red right">chevron_right</i></a>
                     <br><br>
                     <p>These number of products are available in your Inventory</p>
                 </div>
@@ -41,40 +92,40 @@
     
 
    
-        <div class="col-3 s5 m3">
-            <div class="card ">
+        <div class="col-3 s3 m3">
+            <div class="card hoverable">
                 <div class="cardImage">
                     <img   src="../../Images/users.jpg">
                 </div>
                 <div class="card-content ">
-                    <span class="h3 font-weight-bold">Total Users : {{users.length}}  </span>
-                    <a class=" float-right btn-floating  waves-effect waves-light red"><i class="material-icons-right">+</i></a>
+                    <span class="h4 font-weight-bold">Total Users : {{users.length}}  </span>
+                    <a><i class="btn-floating material-icons right red">chevron_right</i></a>
                     <br><br>
                     <p>These number of users have registered on your website</p>
                 </div>
             </div>
         </div>
         <div class="col-3 s5 m3">
-            <div class="card ">
+            <div class="card hoverable ">
                 <div class="cardImage">
                     <img   src="../../Images/transaction2.jpg">
                 </div>
                 <div class="card-content ">
-                    <span class="h3 font-weight-bold">Transactions : {{transactions.length}}  </span>
-                    <a class=" float-right btn-floating  waves-effect waves-light red"><i class="material-icons-right">+</i></a>
+                    <span class="h4 font-weight-bold">Transactions : {{transactions.length}}  </span>
+                    <a ><i class="btn-floating material-icons right red">chevron_right</i></a>
                     <br><br>
                     <p>Total number of successful transactions from your inventory</p>
                 </div>
             </div>
         </div>
         <div class="col-3 s5 m3">
-            <div class="card ">
+            <div class="card hoverable">
                 <div class="cardImage">
                     <img   src="../../Images/profit.jpg">
                 </div>
                 <div class="card-content ">
-                    <span class="h3 font-weight-bold">Total Profit : </span>
-                    <a class=" float-right btn-floating  waves-effect waves-light red"><i class="material-icons-right">+</i></a>
+                    <span class="h4 font-weight-bold">Total Profit : </span>
+                    <a ><i class="btn-floating material-icons red right">chevron_right</i></a>
                     <br><br>
                     <p>Total Profit Earned from sale of all items</p>
                 </div>
@@ -88,96 +139,170 @@
     <form action="/product/add" method="GET">
         <input type="submit" value="Add Product">
     </form><br>
-    <h1>Inventory</h1>
-    <table class="table">
-        <thead class="thead-dark">
-            <th>Product ID</th>
-            <th>Product Image</th>
-            <th>Product Name</th>
-            <th>Company Name</th>
-            <th>Cost Price</th>
-            <th>Selling Price</th>
-            <th>Quantity</th>
-            <th>Description</th>
-            <th>Time Of Addition</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </thead>
+    {{!-- <div id="inventory">
+        <h1 class="text-center text-white heading">Inventory</h1>
+        <table class="table" id="inventoryTable">
+            <thead class="thead-dark">
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Company Name</th>
+                <th>Cost Price</th>
+                <th>Selling Price</th>
+                <th>Quantity</th>
+                <th>Description</th>
+                <th>Time Of Addition</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {{#each products as |item|}}
+
+                    <tr>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.companyname}}</td>
+                        <td>{{item.costprice}}</td>
+                        <td>{{item.sellingprice}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.time}}</td>
+                        <td>
+                            <form action="/product/update" method="POST">
+                                <input type="text" name="id" value="{{item.id}}" hidden>
+                                <input type="submit" class="btn indigo darken" value="Update Details">
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/product/delete" method="POST">
+                                <input type="text" name="id" value="{{item.id}}" hidden>
+                                <input type="submit" class="pink accent-3 btn" value="Delete Product">
+                            </form>
+                        </td>
+                    </tr>
+
+                {{/each}}
+            </tbody>
+        </table>
+    </div> --}}
+
+
+    
+
+    <div id="inventory">
+
         {{#each products as |item|}}
-            <tr>
-                <td>{{item.id}}</td>
-                <td><img src='../../admin/productimages/{{item.id}}.jpg' width='200'></td>
-                <td>{{item.name}}</td>
-                <td>{{item.companyname}}</td>
-                <td>{{item.costprice}}</td>
-                <td>{{item.sellingprice}}</td>
-                <td>{{item.quantity}}</td>
-                <td>{{item.description}}</td>
-                <td>{{item.time}}</td>
-                <td>
-                    <form action="/product/update" method="POST">
-                        <input type="text" name="id" value="{{item.id}}" hidden>
-                        <input type="submit" value="Update Details">
-                    </form>
-                </td>
-                <td>
+
+            <div class="card col-3 hoverable inventoryCard">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../../Images/users.jpg">
+                </div>
+                    <div class="card-content">
+                <span class="font-weight-bold card-title activator grey-text text-darken-4">Name: {{item.name}}<i class="btn btn-floating waves-effect waves-light blue material-icons right ">arrow_upward</i></span>
+                
+                </div>
+                
+                <div class="card-reveal">
+                    <div class="card-title grey-text text-darken-4 font-weight-bold">Name: {{item.name}}<i class="btn btn-floating waves-effect waves-light red material-icons right">arrow_downward</i></div>
+                    
+                                    
+                    <table class="table text-light">
+                        <tr>
+                            <th>Product Id</th>
+                            <td>{{item.id}}</td>
+                        </tr>
+                        <tr>
+                            <th>Company Name</th>
+                            <td>{{item.companyname}}</td>
+                        </tr>
+                        <tr>
+                            <th>Cost Price</th>
+                            <td>{{item.costprice}}</td>
+                        </tr>
+                        <tr>
+                            <th>Selling Price</th>
+                            <td>{{item.sellingprice}}</td>
+                        </tr>
+                        <tr>
+                            <th>Quantity</th>
+                            <td>{{item.quantity}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Description</th>
+                            <td>{{item.description}}</td>
+                        </tr>
+                        <tr>
+                            <th>Entry Time</th>
+                            <td>{{item.time}}</td>
+                        </tr>
+                    </table>
+                
                     <form action="/product/delete" method="POST">
                         <input type="text" name="id" value="{{item.id}}" hidden>
-                        <input type="submit" value="Delete Product">
+                        <input type="submit" class="pink accent-3 btn" value="Delete Product">
                     </form>
-                </td>
-            </tr>
-        {{/each}}
-    </table>
-    <h1>Users</h1>
-    <table class="table text-light text-center" id="userTable" >
-        <thead id="userHeader" class="thead-dark">
-            <th class="userHead">Username</th>
-            <th class="userHead">Email</th>
-        </thead>
-        <tbody >
-            {{#each users as |item|}}
-                <tr>
-                    <td class="username">{{item.username}}</td>
-                    <td class="email">{{item.email}}</td>
+                    <form action="/product/update" method="POST">
+                        <input type="text" name="id" value="{{item.id}}" hidden>
+                        <input type="submit" class="btn green darken-2" value="Update Details">
+                    </form>
                     
+                </div>
+            </div>
+        {{/each}}
+
+    </div>
+    <div id="usersAdmin">
+        <h1 class="text-center text-white heading">Users</h1>
+        <table class="table text-light text-center" id="userTable" >
+            <thead id="userHeader" class="thead-dark">
+                <th class="userHead">Username</th>
+                <th class="userHead">Email</th>
+            </thead>
+            <tbody >
+                {{#each users as |item|}}
+                    <tr>
+                        <td class="username">{{item.username}}</td>
+                        <td class="email">{{item.email}}</td>
+                        
+                    </tr>
+                {{/each}}
+                   
+            </tbody>
+        </table>
+    </div>
+    <div id="transaction">
+        <h1 class="text-center text-white heading">Transaction History</h1>
+        <table class="table text-center" id="transactionTable" >
+            <thead class="thead-dark">
+                <th>Transaction ID</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity Ordered</th>
+                <th>Bill Amount</th>
+                <th>Time Of Order</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Phone No.</th>
+                <th>Address</th>
+            </thead>
+            {{#each transactions as |item|}}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.productid}}</td>
+                    <td>{{item.productname}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.quantityordered}}</td>
+                    <td>{{item.billamount}}</td>
+                    <td>{{item.time}}</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.phoneno}}</td>
+                    <td>{{item.address}}</td>
                 </tr>
             {{/each}}
-        </tbody>
-    </table>
-    <h1>Transaction History</h1>
-    <table class="table text-center" id="transactionTable" >
-        <thead class="thead-dark">
-            <th>Transaction ID</th>
-            <th>Product ID</th>
-            <th>Product Image</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Quantity Ordered</th>
-            <th>Bill Amount</th>
-            <th>Time Of Order</th>
-            <th>Username</th>
-            <th>Name</th>
-            <th>Phone No.</th>
-            <th>Address</th>
-        </thead>
-        {{#each transactions as |item|}}
-            <tr>
-                <td>{{item.id}}</td>
-                <td>{{item.productid}}</td>
-                <td><img src='../../admin/productimages/{{item.productid}}.jpg' width='200'></td>
-                <td>{{item.productname}}</td>
-                <td>{{item.price}}</td>
-                <td>{{item.quantityordered}}</td>
-                <td>{{item.billamount}}</td>
-                <td>{{item.time}}</td>
-                <td>{{item.username}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.phoneno}}</td>
-                <td>{{item.address}}</td>
-            </tr>
-        {{/each}}
-    </table>
+        </table>
+    </div>
     <h1>Product Requests</h1>
     <table border=2 cellspacing="5" cellpadding="5">
         <thead>
@@ -256,4 +381,5 @@
     </table>
 </body>
     <link rel="stylesheet" href="style.css">
+    {{!-- <link rel="stylesheet" href="../../nav.css"> --}}
 </html>

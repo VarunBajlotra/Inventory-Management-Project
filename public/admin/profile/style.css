@@ -1,28 +1,105 @@
 /* body{
-    background-color: rgb(59, 57, 57);
+    background-image: url(../../Images/backgroundAdmin.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 } */
 
 /* -------------------------------------Styling For Card------------------------------------ */
+#adminCard{
+    /* background-image: url(../../Images/backgroundAdmin.jpg); */
+    padding: 4%;
+
+}
 .card{
-    height: 80%;
+    height: 90%;
+    width: 80%;
 }
 .cardImage{
     height: 60%;
 }
 .cardImage img{
-    padding: 2% 3% 2% 7% ;
+    padding: 2% 3% 2% 6% ;
     height:100%;
     width: 98%;
 }
 
+.card-content{
+    padding: 10px;
+}
+
+.btn-floating{
+    padding: 3%;
+}
+
+.card-reveal{
+    color:white;
+    background-image: url(../../Images/cardBack.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 
 /*------------------------------------Styling For cards Ends------------------------------------------- */
 
 /* -----------------------------------Styling For Tables----------------------------------------------- */
+/* #usersAdmin{
+    background-image: url(../../Images/backgroundAdminUsers.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 5%;
+} */
+
+#inventory{
+    /* background-image: url(../../Images/inventoryTable.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
+    padding: 4%;
+    margin-bottom: 5px;
+}
+
+#inventoryTable{
+    border: 5px solid black ;
+    width: 90%;
+    margin-left: 5%;
+}
+#inventoryTable td{
+    border-top:3px solid rgb(5, 5, 5) ;
+}
+#inventoryTable tbody tr:nth-child(odd){
+    background-color: rgb(129, 247, 216);
+}
+
+#inventoryTable tbody tr:nth-child(even){
+    background-color: rgb(255, 247, 224);
+}
+
+.inventoryCard{
+    display: inline-block;
+    overflow: visible;
+    height: 500px;
+    width: 400px;
+    margin: 5px;
+}
+#inventoryCard .card{
+    display: inline-block;
+
+}
+.card-reveal{
+     overflow: visible;
+     display: inline-block;
+ }
+
+#usersAdmin{
+    background-image: url(../../Images/userTable.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom:5% ;
+    margin-bottom: 2%;
+}
 #userTable{
-    width: 50%;
-    margin-left:5%;
+    border: 5px solid rgb(27, 26, 26);
+    width: 60%;
+    margin-left: 20% ;
 }
 
 #userTable th, #userTable td{
@@ -37,12 +114,21 @@
     background-color: #823b56;
 }
 
+#transaction{
+    background-image: url(../../Images/transactionTable.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 3% 0;
+}
 #transactionTable{
     width: 90%;
-    margin-left: 5%;
+    margin-left: 5% ;
     color: white;
 }
 
+#transactionTable td{
+    border-top: 5px solid white;
+}
 #transactionTable tbody tr:nth-child(odd){
     background-color:  rgb(218, 238, 34);
     color: black;
