@@ -2,6 +2,15 @@ const route = require('express').Router()
 const {Users,Products,Transactions,TempProducts} = require('../db')
 const passport = require('passport')
 const cpFile = require('cp-file')
+const nodemailer = require('nodemailer')
+
+let transport = nodemailer.createTransport({
+    service:'gmail',
+    auth: {
+       user: 'varunbajlotra@gmail.com',
+       pass: '17102000vb'
+    }
+});
 
 route.get('/login',(req,res)=>{
     res.render('../public/admin/login')
@@ -99,7 +108,34 @@ route.post('/addtoinventory',(req,res)=>{
             quantity:entry.dataValues.quantity,
             description:entry.dataValues.description,
             time:new Date().toLocaleString()
-        }).then((entry)=>{
+        }).then((item)=>{
+            const message = {
+                from: 'varunbajlotra@gmail.com',
+                to: entry.dataValues.usermail,
+                subject: 'Add Product Request Accepted at Inventory Management System',
+                html: 'Dear <b>'+entry.dataValues.user+'</b>, we are happy to inform you that your product request with the details mentioned below has been <b>ACCEPTED</b>.<br><br>'+
+                      '<b>Product Image</b><br><img src="cid:unique"/ width="200"><br>'+
+                      '<b>Product Name :</b> '+item.dataValues.name+'<br>'+
+                      '<b>Company Name :</b> '+item.dataValues.companyname+'<br>'+
+                      '<b>Cost Price :</b> '+item.dataValues.costprice+'<br>'+
+                      '<b>Quantity :</b> '+item.dataValues.quantity+'<br>'+
+                      '<b>Description :</b> '+item.dataValues.description+'<br><br>'+
+                      'We look forward to get more products from you. Thank You!!<br><br>'+
+                      'Regards<br>'+
+                      'Inventory Management',
+                attachments: [{
+                    filename: req.body.id+'.jpg',
+                    path: './public/consumer/productimagestemp/'+req.body.id+'.jpg',
+                    cid: 'unique'
+                }]
+            };
+            transport.sendMail(message, function(err, info) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log(info);
+                }
+            });
             TempProducts.update({
                 status:'Accepted'
             },{
@@ -108,7 +144,7 @@ route.post('/addtoinventory',(req,res)=>{
                 }
             });
             (async () => {
-                await cpFile('./public/consumer/productimagestemp/'+req.body.id+'.jpg', './public/admin/productimages/'+entry.dataValues.id+'.jpg')
+                await cpFile('./public/consumer/productimagestemp/'+req.body.id+'.jpg', './public/admin/productimages/'+item.dataValues.id+'.jpg')
                 console.log('The file has been moved')
             })();
             res.redirect('/admin/profile')
@@ -120,6 +156,39 @@ route.post('/deleterequest',(req,res)=>{
     if(!req.user){
         return res.redirect('/admin/login')
     }
+    TempProducts.findOne({
+        where:{
+            id:req.body.id
+        }
+    }).then((item)=>{
+        const message = {
+            from: 'varunbajlotra@gmail.com',
+            to: item.dataValues.usermail,
+            subject: 'Add Product Request Declined at Inventory Management System',
+            html: 'Dear <b>'+item.dataValues.user+'</b>, your product request with the details mentioned below has been <b>DECLINED</b>.<br><br>'+
+                  '<b>Product Image</b><br><img src="cid:unique"/ width="200"><br>'+
+                  '<b>Product Name :</b> '+item.dataValues.name+'<br>'+
+                  '<b>Company Name :</b> '+item.dataValues.companyname+'<br>'+
+                  '<b>Cost Price :</b> '+item.dataValues.costprice+'<br>'+
+                  '<b>Quantity :</b> '+item.dataValues.quantity+'<br>'+
+                  '<b>Description :</b> '+item.dataValues.description+'<br><br>'+
+                  'Feel free to send us more offers.<br><br>'+
+                  'Regards<br>'+
+                  'Inventory Management',
+            attachments: [{
+                filename: req.body.id+'.jpg',
+                path: './public/consumer/productimagestemp/'+req.body.id+'.jpg',
+                cid: 'unique'
+            }]
+        };
+        transport.sendMail(message, function(err, info) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(info);
+            }
+        });
+    })
     TempProducts.update({
         status:'Declined'
     },{
