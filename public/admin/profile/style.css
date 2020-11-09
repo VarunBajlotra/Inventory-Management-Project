@@ -1,18 +1,108 @@
-/* body{
-    background-image: url(../../Images/backgroundAdmin.jpg);
+html{
+    height: 100vh;
+    width: 100vw;
+    
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    background-image: url(https://www.wallpapertip.com/wmimgs/174-1742346_inventory-management-system-background.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-} */
-
-/* -------------------------------------Styling For Card------------------------------------ */
-#adminCard{
-    /* background-image: url(../../Images/backgroundAdmin.jpg); */
-    padding: 4%;
+    background-size: cover;    
+    background-attachment: fixed;
 
 }
+
+h2{
+    width: 30%;
+    margin-left: 35%;
+    padding: 5px;
+    background-color: rgb(12, 0, 0);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 3px solid rgb(225, 226, 228);
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 9px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(198, 3, 100, 0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}
+
+/* ---------------------------------------------------------------Styling for NavBar------------------------------------------------------------ */
+
+.navbar{
+    height: 10%;
+    /* border-top: 2px solid rgb(253, 252, 251); */
+    border-bottom: 2px solid rgb(253, 252, 251);
+}
+
+.navbarBrand{
+    font-size: 2rem;
+    color: white;
+}
+
+.navbarBrand:hover{
+    font-size: 2.1rem;
+    
+}
+
+#navContent ul li{
+    margin-right: 10px;
+    width: fit-content;
+}
+
+#navContent ul li a{
+    width: 100%;
+    font-size: 1.3rem;
+    color: rgba(250, 249, 249, 0.918);
+}
+
+
+#navContent ul li a:hover{
+    font-size: 1.4rem;
+    color: white;
+    background-color: rgb(236, 25, 25);
+    border-radius: 10px;
+}
+
+/* -------------------------------------------------------------------Styling For Statistical Cards------------------------------------------------------ */
+#adminCard{
+    /* background-image: url(../../Images/backgroundAdmin.jpg); */
+    padding: 2%;
+}
+
+/* .inventoryCard:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 6px solid rgb(10, 10, 10);
+} */
 .card{
     height: 90%;
-    width: 80%;
+    width: 90%;
+}
+
+.stats{
+    border: 4px solid rgb(19, 19, 20);
 }
 .cardImage{
     height: 60%;
@@ -39,47 +129,117 @@
 }
 
 
-/*------------------------------------Styling For cards Ends------------------------------------------- */
+tbody{
+    font-family: cursive;
+}
 
-/* -----------------------------------Styling For Tables----------------------------------------------- */
-/* #usersAdmin{
-    background-image: url(../../Images/backgroundAdminUsers.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-bottom: 5%;
-} */
+/*--------------------------------------------------------------------Styling For Inventory------------------------------------------------------------ */
 
 #inventory{
     /* background-image: url(../../Images/inventoryTable.jpg);
     background-repeat: no-repeat;
     background-size: cover; */
-    padding: 4%;
+    padding: 2% 2% 2% 2%;
+    /* background-image: url(https://lh3.googleusercontent.com/proxy/vj6hZk4-amGowenxOQDX0arWp9FfYhXTv861d5W5eyW1nBKIJ6_1-mqjKug3BmZu_iSC7WRlaL_JBwaz18hcCozgkAcysWlC7pJQoKbxcdOA9X7QTUHhV2CeN8jYY4WNg-0qBBt0h24_pae0mddC-wFjVq4); */
+    /* background-image: url(https://images.all-free-download.com/images/graphicthumb/rippled_wall_background_01_hd_pictures_169887.jpg); */
+    /* background-image: url(https://wallpapershome.com/images/wallpapers/polygon-2560x1440-4k-hd-wallpaper-orange-red-blue-background-pattern-225.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
     margin-bottom: 5px;
 }
 
-#inventoryTable{
-    border: 5px solid black ;
-    width: 90%;
-    margin-left: 5%;
-}
-#inventoryTable td{
-    border-top:3px solid rgb(5, 5, 5) ;
-}
-#inventoryTable tbody tr:nth-child(odd){
-    background-color: rgb(129, 247, 216);
+
+.inventoryImage{
+    margin-top: 5%;
+    padding-left: 9%;
+    padding-right: 9%;
+    padding-top:  2%;
+    padding-bottom: 9%;
+    height:60%;
+    width:100%;
+    background-color: white;
+    border: 3px solid rgb(42, 42, 41);
+    border-radius: 10px;
 }
 
-#inventoryTable tbody tr:nth-child(even){
-    background-color: rgb(255, 247, 224);
+.inventoryCard:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 6px solid rgb(10, 10, 10);
+}
+
+.inventoryImage:hover{
+    height: 61%;
+}
+
+.inventoryIcon{
+    padding: 3%;
 }
 
 .inventoryCard{
+    background-image: url(../../Images/admin3.jpg);
+    background-size: contain;
     display: inline-block;
     overflow: visible;
-    height: 500px;
-    width: 400px;
-    margin: 5px;
+    height: 475px;
+    width: 350px;
+    margin: 6px;
+    border: 3px solid rgb(24, 22, 22);
+    border-radius: 10px;
+    font-weight: 500;
 }
+
+.desc1,.desc2{
+    width: 70%;
+    border-radius: 5px;
+    padding:2px;
+}
+
+.desc1{
+    background-color: rgb(243, 69, 16);
+    color: white;
+}
+
+.desc2{
+    background-color: rgb(28, 182, 14);
+    color: white;
+}
+
+.titleCard{
+    width: 90%;
+    height: 45px;
+    border-radius: 5px;
+    padding:2px;
+    background-color: black;
+    color: white;
+}
+
+.card-reveal form{
+    display: inline-block;
+}
+
+.card-reveal form input:hover {
+    color:white;
+}
+
+.formBtn{
+    float: right;
+    position: relative;
+    margin: 0%;
+    width: 100%;
+    
+}
+
+.formBtn form input{
+    width:fit-content;
+    margin: 2px 4px 1px 4px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 4%;
+    border-radius: 5px;
+    color: whitesmoke;
+}
+
+
 #inventoryCard .card{
     display: inline-block;
 
@@ -89,33 +249,46 @@
      display: inline-block;
  }
 
+
+/* -------------------------------------------------------------Styling for User Table--------------------------------------------------------------------- */
 #usersAdmin{
-    background-image: url(../../Images/userTable.jpg);
+    /* background-image: url(../../Images/userTable.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom:5% ;
+    padding:2% ;
     margin-bottom: 2%;
 }
 #userTable{
-    border: 5px solid rgb(27, 26, 26);
+    /* border: 5px solid rgb(27, 26, 26); */
     width: 60%;
     margin-left: 20% ;
+}
+
+#userTable tbody tr{
+    margin-top: 5px;
+    border-top: 8px solid rgb(243, 240, 240);
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+#userTable tbody tr:nth-child(odd){
+    background-color: rgb(3, 82, 3)
+}
+
+#userTable tbody tr:nth-child(even){
+    background-color: rgb(229, 249, 53);
+    color: black;
 }
 
 #userTable th, #userTable td{
     border-top: 2px solid beige;
 }
 
-.username{
-    background-color: #092f51;
-}
 
-.email{
-    background-color: #823b56;
-}
+
+/*-------------------------------------------------------------------------Styling for Transaction Table--------------------------------------------------------------  */
 
 #transaction{
-    background-image: url(../../Images/transactionTable.jpg);
+    /* background-image: url(../../Images/transactionTable.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     padding: 3% 0;
@@ -130,18 +303,14 @@
     border-top: 5px solid white;
 }
 #transactionTable tbody tr:nth-child(odd){
-    background-color:  rgb(218, 238, 34);
+    background-color:  rgb(227,253,237);
     color: black;
 }   
 
 #transactionTable tbody tr:nth-child(even) {
-    background-color:rgb(198, 5, 69);
+    background-color: rgb(28,144,18);
 } 
 
-#transactionTable tbody tr :hover {
-    background-color:  rgba(50, 49, 48, 0.891);
-    color:white;
-}   
 /* 
 #transactionTable tbody :nth-child(even) :hover tr {
     background-color:rgb(152, 11, 11);
