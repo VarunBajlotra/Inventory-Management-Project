@@ -7,7 +7,9 @@ body{
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
-    background-image: url(https://www.wallpapertip.com/wmimgs/174-1742346_inventory-management-system-background.jpg);
+    /* background-image: url(https://www.wallpapertip.com/wmimgs/174-1742346_inventory-management-system-background.jpg); */
+    /* background-image: url(https://images8.alphacoders.com/101/1015027.jpg); */
+    background-image: url(https://c0.wallpaperflare.com/preview/194/171/797/color-abstract-background-crop.jpg);
     background-repeat: no-repeat;
     background-size: cover;    
     background-attachment: fixed;
@@ -15,6 +17,7 @@ body{
 }
 
 h2{
+    font-size: 2.2rem;
     width: 30%;
     margin-left: 35%;
     padding: 5px;
@@ -25,7 +28,6 @@ h2{
     border-bottom-left-radius: 5px;
     border: 3px solid rgb(225, 226, 228);
 }
-
 /*------------------------------------------------------Scrolling for Scroll Bar------------------------------------------------------ */
 ::-webkit-scrollbar {
     width: 9px;
@@ -41,13 +43,14 @@ h2{
 /* Handle */
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     background: rgb(253, 250, 251); 
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(255,0,0,0.4); 
+    background: rgba(255,0,0,0.4); 
 }
+
 
 /* ---------------------------------------------------------------Styling for NavBar------------------------------------------------------------ */
 
@@ -85,41 +88,7 @@ h2{
     background-color: rgb(236, 25, 25);
     border-radius: 10px;
 }
-
-/* -------------------------------------------------------------------Styling For Statistical Cards------------------------------------------------------ */
-#adminCard{
-    /* background-image: url(../../Images/backgroundAdmin.jpg); */
-    padding: 2%;
-}
-
-/* .inventoryCard:hover{
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border: 6px solid rgb(10, 10, 10);
-} */
-.card{
-    height: 90%;
-    width: 90%;
-}
-
-.stats{
-    border: 4px solid rgb(19, 19, 20);
-}
-.cardImage{
-    height: 60%;
-}
-.cardImage img{
-    padding: 2% 3% 2% 6% ;
-    height:100%;
-    width: 98%;
-}
-
-.card-content{
-    padding: 10px;
-}
-
-.btn-floating{
-    padding: 3%;
-}
+/*-------------------------------------------------Inventory----------------------------------------------------------- */
 
 .card-reveal{
     color:white;
@@ -127,14 +96,6 @@ h2{
     background-size: cover;
     background-repeat: no-repeat;
 }
-
-
-tbody{
-    font-family: cursive;
-}
-
-/*--------------------------------------------------------------------Styling For Inventory------------------------------------------------------------ */
-
 #inventory{
     /* background-image: url(../../Images/inventoryTable.jpg);
     background-repeat: no-repeat;
@@ -224,24 +185,6 @@ tbody{
     color:white;
 }
 
-.formBtn{
-    float: right;
-    position: relative;
-    margin: 0%;
-    width: 100%;
-    
-}
-
-.formBtn form input{
-    width:fit-content;
-    margin: 2px 4px 1px 4px;
-    font-size: 1.1rem;
-    font-weight: 400;
-    padding: 4%;
-    border-radius: 5px;
-    color: whitesmoke;
-}
-
 
 #inventoryCard .card{
     display: inline-block;
@@ -252,110 +195,40 @@ tbody{
      display: inline-block;
  }
 
+ #add{
+     margin-top: 20px;
+     background-image: url(https://cdn.hipwallpaper.com/i/15/96/oEy7sA.jpg);
+     background-size: cover;
+     background-color: rgba(255, 255, 255, 0.449);
+     border: 2px solid black;
+     border-radius: 10px;
+     box-sizing: border-box;
+     box-shadow: 2px black;
+     padding: 20px;
+ }
 
-/* -----------------------------------------------------------Styling for productRequest------------------------------------------------------------------- */
+ .add{
+     padding: 20px;
+ }
 
-.productRequestCard{
-    /* background-image: url(../../Images/productRequestCard.jpg); */
-    background-image: url(../../Images/productRequestCard2.jpg);
+input[type=file]{
+     border-radius: 4px; 
+     background-color: black ;
+ }
+
+ #transTable{
+     background-image: url(https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Geometric-Simple-Background-Image.jpg);
+     background-size: cover;
+     padding: 30px;
+ }
+
+
+ #transTable table{
+     padding: 5px;
+ }
+
+#prodTable{
+    background-image: url(https://image.freepik.com/free-vector/colorful-polygon-background-vector-abstract_37641-65.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
-    padding: 1%;
-    border: 3px solid black;
-    border-radius: 10px;
-    display: inline-block;
-    overflow: visible;
-    height: 500px;
-    width: 23%;
-    margin: 6px;
-    font-weight: 500;
+    padding: 30px;
 }
-
-.productRequestImage{
-    height: 280px;
-    width: 250px;
-    border: 2px solid black;
-    border-radius: 20px;
-}
-
-.requestLog{
-    /* background-image: url(../../Images/productRequestCard.jpg); */
-    background-image: url(../../Images/requestLog.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 1%;
-    border: 3px solid black;
-    border-radius: 10px;
-    display: inline-block;
-    overflow: visible;
-    height: 500px;
-    width: 23%;
-    margin: 6px;
-    font-weight: 500;
-}
-/* -------------------------------------------------------------Styling for User Table--------------------------------------------------------------------- */
-#usersAdmin{
-    /* background-image: url(../../Images/userTable.jpg); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding:2% ;
-    margin-bottom: 2%;
-}
-#userTable{
-    /* border: 5px solid rgb(27, 26, 26); */
-    width: 60%;
-    margin-left: 20% ;
-}
-
-#userTable tbody tr{
-    margin-top: 5px;
-    border-top: 8px solid rgb(243, 240, 240);
-    font-size: 1.2rem;
-    font-weight: 400;
-}
-#userTable tbody tr:nth-child(odd){
-    background-color: rgb(3, 82, 3)
-}
-
-#userTable tbody tr:nth-child(even){
-    background-color: rgb(229, 249, 53);
-    color: black;
-}
-
-#userTable th, #userTable td{
-    border-top: 2px solid beige;
-}
-
-
-
-/*-------------------------------------------------------------------------Styling for Transaction Table--------------------------------------------------------------  */
-
-#transaction{
-    /* background-image: url(../../Images/transactionTable.jpg); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 3% 0;
-}
-#transactionTable{
-    width: 90%;
-    margin-left: 5% ;
-    color: white;
-}
-
-#transactionTable td{
-    border-top: 5px solid white;
-}
-#transactionTable tbody tr:nth-child(odd){
-    background-color:  rgb(227,253,237);
-    color: black;
-}   
-
-#transactionTable tbody tr:nth-child(even) {
-    background-color: rgb(28,144,18);
-} 
-
-/* 
-#transactionTable tbody :nth-child(even) :hover tr {
-    background-color:rgb(152, 11, 11);
-}   */
-

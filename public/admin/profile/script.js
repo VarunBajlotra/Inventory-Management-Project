@@ -1,6 +1,6 @@
+statsNav()
 $(()=>{
     statsNav()
-
     $('#statsNav').click(statsNav)
     $('#invNav').click(invNav)
     $('#usersNav').click(usersNav)

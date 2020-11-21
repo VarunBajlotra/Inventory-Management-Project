@@ -4,20 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bill Display</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <a href="/user/profile">Go To Profile</a>
-    <h1>Your Bill Details</h1>
-    <h1>Transaction ID : {{item.id}}</h1>
-    <h1>Product ID : {{item.productid}}</h1>
-    <h1>Product Image : <img src='../../admin/productimages/{{item.productid}}.jpg' width='200'></h1>
-    <h1>Product Name : {{item.productname}}</h1>
-    <h1>Price : {{item.price}}</h1>
-    <h1>Quantity Ordered : {{item.quantityordered}}</h1>
-    <h1>Bill Amount : {{item.billamount}}</h1>
-    <h1>Username : {{item.username}}</h1>
-    <h1>Name : {{item.name}}</h1>
-    <h1>Phone No. : {{item.phoneno}}</h1>
-    <h1>Address : {{item.address}}</h1>
+
+    {{!-----------------------------------------------------------------Navbar---------------------------------------------------------------------------- --}}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <a class="navbarBrand col-md-3 text-center">Inventory Manager</a>
+        
+        <div class="collapse navbar-collapse justify-content-end" id="navContent">
+            <ul class="navbar-nav">
+                 <li class="nav-item">
+                    <a class="nav-link text-center"  href="/user/profile">Profile View</a>
+                </li>
+                <li class="nav-item text-center">
+                    <a class="nav-link" href="/admin/logout">Logout</a>
+                </li>
+            
+            </ul>
+        </div>
+    </nav>
+
+    <div id="bill" class="container">
+        <div id="billHead">
+            <h2 class="text-center">BILL DETAILS</h2>
+        </div>
+        <div id="billContent">
+            <div class="row middle">
+                <div class="col-md-3 align-middle">Transaction ID : {{item.id}}</div>
+                <div class="col-md-3">Billed To : {{item.address}} </div> 
+                <div class="col-md-3">Bill Amount : {{item.billamount}}</div>
+                <img src='../../admin/productimages/{{item.productid}}.jpg' class="col-md-3" height="200px"></h2>
+
+            </div>
+           
+            <div class="descr">
+                {{!-- <h3 class="text-center">Product Description</h3> --}}
+                <table >
+                    <thead class="text-dark">
+                        <th>Name</th>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Item Price Per Unit</th>
+                        <th>Quantity Ordered</th>
+                        <th>Phone Number</th>
+                        <th>Billing Amount</th>
+                        
+                    </thead>
+                    <tbody>
+                        <td>{{item.name}}</td>
+                        <td>{{item.productid}}</td>
+                        <td>{{item.productname}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.quantityordered}}</td>
+                        <td>{{item.phoneno}}</td>
+                        <td>{{item.billamount}}</td>
+                    </tbody>
+                
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    <link rel="stylesheet" href="../../consumer/billdisplay/style.css">
 </body>
 </html>

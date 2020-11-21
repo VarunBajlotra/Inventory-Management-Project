@@ -85,6 +85,7 @@ route.get('/profile',(req,res)=>{
 })
 
 route.post('/buy',(req,res)=>{
+    console.log(req.body)
     if(!req.user){
         return res.redirect('/user/login')
     }
@@ -95,6 +96,23 @@ route.post('/buy',(req,res)=>{
     }).then((entry)=>{
         res.render('../public/consumer/buyproduct',{
             entry
+        })
+    })
+})
+route.get('/billdisplay',(req,res)=>{
+    if(!req.user){
+        return res.redirect('/user/login')
+    }
+    Transactions.findAll({
+        limit:1,
+        where:{
+            username:req.user.username
+        },
+        order: [ ['createdAt','DESC'] ]
+    }).then((item)=>{
+        console.log(item[0].dataValues)
+        res.render('../public/consumer/billdisplay',{
+            item:item[0]
         })
     })
 })
@@ -154,9 +172,10 @@ route.post('/order',(req,res)=>{
             }
         })
         console.log('Rendering Bill')
-        res.render('../public/consumer/billdisplay',{
-            item
-        })
+        // res.render('../public/consumer/billdisplay',{
+        //     item
+        // })
+        res.redirect('/user/billdisplay')
     })
 })
 

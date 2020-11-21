@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
     crossorigin="anonymous">
 
@@ -255,86 +255,128 @@
 
     {{!------------------------------------------------------------------------Product Requests-------------------------------------------------------------------}}
     <div id="productRequest">
-        <h1>Product Requests</h1>
-        <table border=2 cellspacing="5" cellpadding="5">
-            <thead>
-                <th>Product ID</th>
-                <th>Product Image</th>
-                <th>Product Name</th>
-                <th>Company Name</th>
-                <th>Cost Price</th>
-                <th>Quantity</th>
-                <th>Description</th>
-                <th>Time Of Request</th>
-                <th>User who Requested</th>
-                <th>User's Mail</th>
-                <th>Add to Inventory</th>
-                <th>Delete Request</th>
-            </thead>
-            {{#each tempproducts as |item|}}
-                <tr>
-                    <td>{{item.id}}</td>
-                    <td><img src='../../consumer/productimagestemp/{{item.id}}.jpg' width='200'></td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.companyname}}</td>
-                    <td>{{item.costprice}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.description}}</td>
-                    <td>{{item.time}}</td>
-                    <td>{{item.user}}</td>
-                    <td>{{item.usermail}}</td>
-                    <td>
-                        <form action="/admin/addtoinventory" method="POST">
-                            <input type="text" name="sellingprice" placeholder="Enter Selling Price" required>
-                            <input type="text" name="id" value="{{item.id}}" hidden>
-                            <input type="submit" value="Add to Inventory">
-                        </form>
-                    </td>
-                    <td>
-                        <form action="/admin/deleterequest" method="POST">
-                            <input type="text" name="id" value="{{item.id}}" hidden>
-                            <input type="submit" value="Delete Request">
-                        </form>
-                    </td>
-                </tr>
-            {{/each}}
-        </table>
+        <h2 class="text-center text-white ">Product Requests</h2>
+        
+        {{#each tempproducts as |item|}}
+        <div class="card col-3 productRequestCard hoverable z-depth-1  ">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator productRequestImage" src="../../consumer/productImagesTemp/{{item.id}}.jpg">
+            </div>
+            <div class="card-content">
+                <span class="font-weight-bolder card-title activator titleCard text-center">{{item.name}}<i class="btn btn-floating waves-effect waves-light green accent-4 material-icons right inventoryIcon">arrow_upward</i></span>
+                <span class="font-weight-bold card-title activator desc3 text-center">User: {{item.user}}</span>
+                <span class="font-weight-bold card-title activator desc2 text-center">Cost Price: {{item.costprice}}</span>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title text-white">{{item.name}}<i class="btn btn-floating waves-effect waves-light red accent-4 material-icons right inventoryIcon">arrow_downward</i></span>
+                <table class="table text-light">
+                    <tr>
+                        <th class="text-center">Product Id</th>
+                        <td class="text-center">{{item.id}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">User Mail</th>
+                        <td class="text-center">{{item.usermail}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Company Name</th>
+                        <td class="text-center">{{item.companyname}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Cost Price</th>
+                        <td class="text-center">{{item.costprice}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Quantity</th>
+                        <td class="text-center">{{item.quantity}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th class="text-center">Description</th>
+                        <td class="text-center">{{item.description}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Request Time</th>
+                        <td class="text-center">{{item.time}}</td>
+                    </tr>
+                </table>
+                <div class="card-action">
+                    <form action="/admin/addtoinventory" method="POST" >
+                        <label for="sp" class="font-weight-bold">Enter Selling Price</label>
+                        <input type="text" name="sellingprice" id="sp" class="bg-light" required>
+                        <input type="text" name="id" value="{{item.id}}" hidden>
+                        <input type="submit" value="Add to Inventory" class="btn green darken-2">
+                    </form>
+                    <form action="/admin/deleterequest" method="POST" >
+                        <input type="text" name="id" value="{{item.id}}" hidden>
+                        <input type="submit" value="Delete Request" class="btn red darken-1 ">
+                    </form>
+
+                </div>      
+            </div>
+             
+        </div>
+        {{/each}}
+
     </div>
     {{!----------------------------------------------------------------------Request Log----------------------------------------------------------------}}
     <div id="requestLog">
-        <h1>Product Request Log</h1>
-        <table border=2 cellspacing="5" cellpadding="5">
-            <thead>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Product Image</th>
-                <th>Company Name</th>
-                <th>Cost Price</th>
-                <th>Quantity</th>
-                <th>Description</th>
-                <th>Time Of Request</th>
-                <th>User who Requested</th>
-                <th>User's Mail</th>
-                <th>Status</th>
-            </thead>
-            {{#each requestlog as |item|}}
-                <tr>
-                    <td>{{item.id}}</td>
-                    <td><img src='../../consumer/productimagestemp/{{item.id}}.jpg' width='200'></td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.companyname}}</td>
-                    <td>{{item.costprice}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.description}}</td>
-                    <td>{{item.time}}</td>
-                    <td>{{item.user}}</td>
-                    <td>{{item.usermail}}</td>
-                    <td>{{item.status}}</td>
-                </tr>
-            {{/each}}
-        </table>
+        <h2 class="text-center text-white" style="width: fit-content;">Product Request Log</h2>
+        
+        {{#each requestlog as |item|}}
+        <div class="card col-3 requestLog hoverable z-depth-1  ">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator productRequestImage" src="../../consumer/productImagesTemp/{{item.id}}.jpg">
+            </div>
+            <div class="card-content">
+                <span class="font-weight-bolder card-title activator titleCard text-center">{{item.name}}<i class="btn btn-floating waves-effect waves-light green accent-4 material-icons right inventoryIcon">arrow_upward</i></span>
+                <span class="font-weight-bold card-title activator desc3 text-center">User: {{item.user}}</span>
+                <span class="font-weight-bold card-title activator desc2 text-center">Cost Price: {{item.costprice}}</span>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title text-white">{{item.name}}<i class="btn btn-floating waves-effect waves-light red accent-4 material-icons right inventoryIcon">arrow_downward</i></span>
+                <table class="table text-light">
+                    <tr>
+                        <th class="text-center">Product Id</th>
+                        <td class="text-center">{{item.id}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">User Mail</th>
+                        <td class="text-center">{{item.usermail}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Company Name</th>
+                        <td class="text-center">{{item.companyname}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Cost Price</th>
+                        <td class="text-center">{{item.costprice}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Quantity</th>
+                        <td class="text-center">{{item.quantity}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th class="text-center">Description</th>
+                        <td class="text-center">{{item.description}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Request Time</th>
+                        <td class="text-center">{{item.time}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Status</th>
+                        <td class="text-center">{{item.status}}</td>
+                    </tr>
+                </table>
+                
+            </div>
+             
+        </div>
+        {{/each}}
     </div>
 </body>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../admin/profile/style.css">
     {{!-- <link rel="stylesheet" href="../../nav.css"> --}}
 </html>

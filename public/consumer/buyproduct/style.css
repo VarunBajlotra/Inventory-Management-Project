@@ -1,0 +1,203 @@
+html{
+    height: 100vh;
+    width: 100vw;
+    
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    /* background-image: url(https://www.wallpapertip.com/wmimgs/174-1742346_inventory-management-system-background.jpg); */
+    /* background-image: url(https://images8.alphacoders.com/101/1015027.jpg); */
+    background-image: url(https://c0.wallpaperflare.com/preview/194/171/797/color-abstract-background-crop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-attachment: fixed;
+
+}
+
+h3{
+    width: 30%;
+    margin-left: 35%;
+    padding: 5px;
+    background-color: rgb(12, 0, 0);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 3px solid rgb(225, 226, 228);
+}
+
+/*------------------------------------------------------Scrolling for Scroll Bar------------------------------------------------------ */
+::-webkit-scrollbar {
+    width: 9px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 5px;
+    background: rgb(253, 250, 251); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255,0,0,0.4); 
+}
+
+/* -----------------------------------------------Nav Bar------------------------------------------------------------------ */
+.navbar{
+    height: 10%;
+    border-bottom: 2px solid rgb(253, 252, 251);
+}
+
+.navbarBrand{
+    font-size: 2rem;
+    color: white;
+}
+
+.navbarBrand:hover{
+    font-size: 2.1rem;
+    
+}
+
+#navContent ul li{
+    margin-right: 30px;
+    width: fit-content;
+}
+
+#navContent ul li a{
+    width: 100%;
+    font-size: 1.3rem;
+    color: rgba(250, 249, 249, 0.918);
+}
+
+
+#navContent ul li a:hover{
+    font-size: 1.4rem;
+    color: white;
+    background-color: rgb(236, 25, 25);
+    border-radius: 10px;
+}
+
+/* --------------------------------------------Styling for Card------------------------------------------------------------- */
+
+.inventoryCard{
+    margin-left: 37%;
+    padding: 0% 2%;
+}
+
+.card-reveal{
+    color:white;
+    background-image: url(../../Images/cardBack.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.inventoryImage{
+    margin-top: 5%;
+    margin-left: 3%;
+    padding-left: 9%;
+    padding-right: 9%;
+    padding-top:  2%;
+    padding-bottom: 9%;
+    height:250px;
+    width:90%;
+    background-color: white;
+    border: 3px solid rgb(42, 42, 41);
+    border-radius: 10px;
+}
+
+.inventoryCard:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 6px solid rgb(10, 10, 10);
+}
+
+
+
+.inventoryIcon{
+    padding: 3%;
+}
+
+.inventoryCard{
+    /* background-image: url(../../Images/admin3.jpg); */
+    /* background-image: url(https://png.pngtree.com/thumb_back/fh260/back_our/20190619/ourmid/pngtree-blue-minimalistic-geometric-education-academic-advertising-detail-page-vector-background-image_135064.jpg); */
+    background-image: url(https://images.unsplash.com/photo-1575898201154-d65111ab78b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+    background-size: cover;
+    display: inline-block;
+    overflow: visible;
+    height: fit-content;
+    width: fit-content;
+    border: 4px solid rgb(24, 22, 22);
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.desc1,.desc2,.desc3{
+    width: 75%;
+    border-radius: 5px;
+    padding:2px;
+}
+
+.desc1{
+    background-color: rgb(243, 69, 16);
+    color: white;
+}
+
+.desc2{
+    background-color: rgb(182, 14, 50);
+    color: white;
+}
+.desc3{
+    background-color: rgb(162, 4, 182);
+    color: white;
+}
+.titleCard{
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    padding:2px;
+    background-color: black;
+    color: white;
+}
+
+form{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 4% ! important;
+    background-color: rgb(127, 221, 252);
+}
+
+input{
+    padding-left: 2px ! important;
+    margin-bottom: 2px;
+    background-color: rgb(232, 253, 253) ! important; 
+    border-radius: 10px ! important;
+}
+
+input:focus{
+    border:2px solid black !important;
+    transition: ease-in-out, border .35s ease-in-out;    
+}
+
+
+
+::placeholder{
+    padding: 2px;
+    color: rgb(93, 89, 89);
+}
+
+
+#buy{
+    padding-left: 3px !important;
+    border-radius: 5px !important;
+    justify-content: center;
+    background-color: rgb(9, 181, 49) !important;
+    color: white;
+}
