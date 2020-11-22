@@ -195,8 +195,12 @@ h2{
      display: inline-block;
  }
 
+.wrap{
+    margin: auto;
+    padding: 5%;
+}
  #add{
-     margin: 20px;
+     margin: auto;
      background-image: url(https://cdn.hipwallpaper.com/i/15/96/oEy7sA.jpg);
      background-size: cover;
      background-color: rgba(255, 255, 255, 0.449);
@@ -216,7 +220,10 @@ input[type=file]{
      background-color: black ;
  }
 
- #transTable{
+#transactions{
+    padding: 50px;
+}
+#transTable{
      background-image: url(https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Geometric-Simple-Background-Image.jpg);
      background-size: cover;
      padding: 30px;
