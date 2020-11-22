@@ -1,0 +1,96 @@
+html{
+    height: 100vh;
+    width: 100vw;
+    
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    background-image: url(https://www.wallpapertip.com/wmimgs/174-1742346_inventory-management-system-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-attachment: fixed;
+
+}
+/*------------------------------------------------------Scrolling for Scroll Bar------------------------------------------------------ */
+::-webkit-scrollbar {
+    width: 9px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgb(253, 250, 251); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}
+
+/* ---------------------------------------------------------------Styling for NavBar------------------------------------------------------------ */
+
+.navbar{
+    height: 10%;
+    /* border-top: 2px solid rgb(253, 252, 251); */
+    border-bottom: 2px solid rgb(253, 252, 251);
+}
+
+.navbarBrand{
+    font-size: 2rem;
+    color: white;
+}
+
+.navbarBrand:hover{
+    font-size: 2.1rem;
+    
+}
+
+#navContent ul li{
+    margin-right: 10px;
+    width: fit-content;
+}
+
+#navContent ul li a{
+    width: 100%;
+    font-size: 1.3rem;
+    color: rgba(250, 249, 249, 0.918);
+}
+
+
+#navContent ul li a:hover{
+    font-size: 1.4rem;
+    color: white;
+    background-color: rgb(236, 25, 25);
+    border-radius: 10px;
+}
+/*---------------------------------------------------Styling For Update Product ---------------------------------------------------------------*/
+#add{
+    margin: auto;
+    background-image: url(https://cdn.hipwallpaper.com/i/15/96/oEy7sA.jpg);
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.449);
+    border: 2px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 2px black;
+    padding: 20px;
+    font-weight: 600;
+}
+
+.add{
+    padding: 20px;
+}
+
+input[type=file]{
+    border-radius: 4px; 
+    background-color: black ;
+}

@@ -101,6 +101,9 @@ h2{
     width: 90%;
 }
 
+.st{
+    padding-left: 5%;
+}
 .stats{
     border: 4px solid rgb(19, 19, 20);
 }
@@ -359,3 +362,27 @@ tbody{
     background-color:rgb(152, 11, 11);
 }   */
 
+
+/* -------------------------------------------------Styling for Add Product---------------------------------------- */
+
+
+#add{
+    margin: auto;
+    background-image: url(https://cdn.hipwallpaper.com/i/15/96/oEy7sA.jpg);
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.449);
+    border: 2px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 2px black;
+    padding: 20px;
+}
+
+.add{
+    padding: 20px;
+}
+
+input[type=file]{
+    border-radius: 4px; 
+    background-color: black ;
+}

@@ -1,18 +1,23 @@
 body {
-    background: #222D32;
     font-family: 'Roboto', sans-serif;
+    /* background-image: url(https://i.pinimg.com/originals/68/24/60/6824606e11693ae715d4d83895bf7dc4.jpg); */
+    /* background-image: url(https://image.freepik.com/free-vector/abstract-background_53876-43362.jpg); */
+    background-image: url(https://wallpaperaccess.com/full/280877.png);
+    background-size: cover;
+
 }
 
 .container{
-    background: #222D32;
+    margin: auto;
+    /* padding-bottom:100px;     */
 }
 
 .login-box {
     margin-top: 75px;
     height: auto;
-    background: #1A2226;
+    background: #140c42;
     text-align: center;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(3, 3, 120, 0.939), 0 3px 6px rgba(12, 47, 154, 0.972);
 }
 
 .login-key {
@@ -88,37 +93,27 @@ input:focus {
 
 label {
     margin-bottom: 0px;
+    
 }
 
 .form-control-label {
-    font-size: 10px;
-    color: #6C6C6C;
+    font-size: 0.8rem;
+    /* color: #6C6C6C; */
     font-weight: bold;
     letter-spacing: 1px;
-}
-
-.btn-outline-primary {
-    border-color: #0DB8DE;
-    color: #0DB8DE;
-    border-radius: 0px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.btn-outline-primary:hover {
-    background-color: #0DB8DE;
-    right: 0px;
+    color: rgb(220, 212, 212);
+    font-weight: 500 !important;
 }
 
 .login-btm {
-    float: left;
+    justify-content: center !important;
 }
 
 .login-button {
     padding-right: 0px;
     text-align: right;
     margin-bottom: 25px;
+    justify-content: center;
 }
 
 .login-text {
@@ -127,6 +122,3 @@ label {
     color: #A2A4A4;
 }
 
-.loginbttm {
-    padding: 0px;
-}

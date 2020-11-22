@@ -7,6 +7,7 @@ $(()=>{
     $('#transNav').click(transNav)
     $('#prodNav').click(prodNav)
     $('#reqNav').click(reqNav)
+    $('#addProduct').click(showAdd)
 })
 
 function statsNav(){
@@ -16,6 +17,7 @@ function statsNav(){
     $('#transaction').hide()
     $('#productRequest').hide()
     $('#requestLog').hide()
+    $('#add').hide()
 }
 
 function invNav(){
@@ -25,6 +27,8 @@ function invNav(){
     $('#transaction').hide()
     $('#productRequest').hide()
     $('#requestLog').hide()
+    $('#add').hide()
+
 }
 
 function usersNav(){
@@ -34,6 +38,7 @@ function usersNav(){
     $('#transaction').hide()
     $('#productRequest').hide()
     $('#requestLog').hide()
+    $('#add').hide()
 }
 
 function transNav(){
@@ -43,6 +48,7 @@ function transNav(){
     $('#transaction').show()
     $('#productRequest').hide()
     $('#requestLog').hide()
+    $('#add').hide()
 }
 
 function prodNav(){
@@ -52,6 +58,7 @@ function prodNav(){
     $('#transaction').hide()
     $('#productRequest').show()
     $('#requestLog').hide()
+    $('#add').hide()
 }
 function reqNav(){
     $('#adminCard').hide()
@@ -60,4 +67,15 @@ function reqNav(){
     $('#transaction').hide()
     $('#productRequest').hide()
     $('#requestLog').show()
+    $('#add').hide()
+}
+
+function showAdd(){
+    $('#adminCard').hide()
+    $('#inventory').hide()
+    $('#usersAdmin').hide()
+    $('#transaction').hide()
+    $('#productRequest').hide()
+    $('#requestLog').hide()
+    $('#add').show()
 }

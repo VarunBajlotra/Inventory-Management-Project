@@ -13,6 +13,8 @@ let transport = nodemailer.createTransport({
 });
 
 route.get('/login',(req,res)=>{
+    if(req.user)
+        return res.redirect('/admin/profile')
     res.render('../public/admin/login')
 })
 
