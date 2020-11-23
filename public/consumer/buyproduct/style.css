@@ -9,7 +9,8 @@ body{
     overflow-x: hidden;
     /* background-image: url(https://www.wallpapertip.com/wmimgs/174-1742346_inventory-management-system-background.jpg); */
     /* background-image: url(https://images8.alphacoders.com/101/1015027.jpg); */
-    background-image: url(https://c0.wallpaperflare.com/preview/194/171/797/color-abstract-background-crop.jpg);
+    /* background-image: url(https://c0.wallpaperflare.com/preview/194/171/797/color-abstract-background-crop.jpg); */
+    background-image: url(../../Images/billDisplay.jpg);
     background-repeat: no-repeat;
     background-size: cover;    
     background-attachment: fixed;

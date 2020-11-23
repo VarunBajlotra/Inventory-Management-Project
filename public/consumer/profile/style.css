@@ -9,7 +9,8 @@ body{
     overflow-x: hidden;
     /* background-image: url(https://www.wallpapertip.com/wmimgs/174-1742346_inventory-management-system-background.jpg); */
     /* background-image: url(https://images8.alphacoders.com/101/1015027.jpg); */
-    background-image: url(https://c0.wallpaperflare.com/preview/194/171/797/color-abstract-background-crop.jpg);
+    /* background-image: url(https://c0.wallpaperflare.com/preview/194/171/797/color-abstract-background-crop.jpg); */
+    background-image: url(../../Images/consumerProfile.jpg);
     background-repeat: no-repeat;
     background-size: cover;    
     background-attachment: fixed;
@@ -199,9 +200,10 @@ h2{
     margin: auto;
     padding: 5%;
 }
- #add{
+#add{
      margin: auto;
-     background-image: url(https://cdn.hipwallpaper.com/i/15/96/oEy7sA.jpg);
+     /* background-image: url(https://cdn.hipwallpaper.com/i/15/96/oEy7sA.jpg); */
+     background-image: url(../../Images/addProduct.jpg);
      background-size: cover;
      background-color: rgba(255, 255, 255, 0.449);
      border: 2px solid black;
@@ -211,9 +213,9 @@ h2{
      padding: 20px;
  }
 
- .add{
+.add{
      padding: 20px;
- }
+}
 
 input[type=file]{
      border-radius: 4px; 
@@ -223,8 +225,10 @@ input[type=file]{
 #transactions{
     padding: 50px;
 }
+
 #transTable{
-     background-image: url(https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Geometric-Simple-Background-Image.jpg);
+     /* background-image: url(https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Geometric-Simple-Background-Image.jpg); */
+     background-image: url(../../Images/transTable.jpg);
      background-size: cover;
      padding: 30px;
  }
@@ -235,7 +239,8 @@ input[type=file]{
  }
 
 #prodTable{
-    background-image: url(https://image.freepik.com/free-vector/colorful-polygon-background-vector-abstract_37641-65.jpg);
+    /* background-image: url(https://image.freepik.com/free-vector/colorful-polygon-background-vector-abstract_37641-65.jpg); */
+    background-image: url(../../Images/prodTable.jpg);
     background-size: cover;
     padding: 30px;
 }

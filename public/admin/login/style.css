@@ -2,7 +2,8 @@ body {
     font-family: 'Roboto', sans-serif;
     /* background-image: url(https://i.pinimg.com/originals/68/24/60/6824606e11693ae715d4d83895bf7dc4.jpg); */
     /* background-image: url(https://image.freepik.com/free-vector/abstract-background_53876-43362.jpg); */
-    background-image: url(https://wallpaperaccess.com/full/280877.png);
+    /* background-image: url(https://wallpaperaccess.com/full/280877.png); */
+    background-image: url(../../Images/adminLogin.png);
     background-size: cover;
 
 }

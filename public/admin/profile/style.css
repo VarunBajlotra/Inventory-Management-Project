@@ -7,7 +7,8 @@ body{
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
-    background-image: url(https://www.wallpapertip.com/wmimgs/174-1742346_inventory-management-system-background.jpg);
+    /* background-image: url(https://www.wallpapertip.com/wmimgs/174-1742346_inventory-management-system-background.jpg); */
+    background-image: url(../../Images/adminProfile.jpg);
     background-repeat: no-repeat;
     background-size: cover;    
     background-attachment: fixed;
@@ -223,9 +224,9 @@ tbody{
     display: inline-block;
 }
 
-.card-reveal form input:hover {
+/* .card-reveal form input:hover {
     color:white;
-}
+} */
 
 .formBtn{
     float: right;
@@ -368,7 +369,8 @@ tbody{
 
 #add{
     margin: auto;
-    background-image: url(https://cdn.hipwallpaper.com/i/15/96/oEy7sA.jpg);
+    /* background-image: url(https://cdn.hipwallpaper.com/i/15/96/oEy7sA.jpg); */
+    background-image: url(../../Images/addProduct.jpg);
     background-size: cover;
     background-color: rgba(255, 255, 255, 0.449);
     border: 2px solid black;
