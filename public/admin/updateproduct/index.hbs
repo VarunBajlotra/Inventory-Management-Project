@@ -52,7 +52,7 @@
         <input type="submit" value="Update Details" id="submit">
     </form> --}}
     <div class="container" id="add">
-        <form action="/product/updateindb" method="POST" class="bg-white add">
+        <form action="/product/updateindb" method="POST" class="bg-white add" enctype="multipart/form-data">
             Product ID: {{entry.id}}<input type="number" value="{{entry.id}}" name="id" hidden><br><br>
             Product Name: <input type="text" value="{{entry.name}}" name="name" id="name"><br><br>
             Company Name: <input type="text" value="{{entry.companyname}}" name="companyname"><br><br>
@@ -65,7 +65,7 @@
             <button type="submit" id="submit" class="btn red darken-2">Update Product</button>
         </form>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="../../consumer/profile/addProd.js"></script>
+        {{!-- <script src="../../consumer/profile/addProd.js"></script> --}}
     </div>
 
 

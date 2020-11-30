@@ -3,6 +3,7 @@ const passport = require('passport')
 const {Users,Products,Transactions,TempProducts} = require('../db')
 const moveFile = require('move-file')
 const nodemailer = require('nodemailer')
+const multer = require('multer')
 
 let transport = nodemailer.createTransport({
     service:'gmail',
@@ -172,9 +173,6 @@ route.post('/order',(req,res)=>{
             }
         })
         console.log('Rendering Bill')
-        // res.render('../public/consumer/billdisplay',{
-        //     item
-        // })
         res.redirect('/user/billdisplay')
     })
 })
@@ -186,92 +184,68 @@ route.get('/addproduct',(req,res)=>{
     res.render('../public/consumer/addproduct')
 })
 
+const storageAdd = multer.diskStorage({
+    destination: './public/consumer/productImagesTemp',
+    filename: function (req, file, cb) {
+                TempProducts.create({
+                    name:req.body.name,
+                    companyname:req.body.companyname,
+                    costprice:req.body.costprice,
+                    quantity:req.body.quantity,
+                    description:req.body.description,
+                    time:new Date().toLocaleString(),
+                    user:req.user.username,
+                    usermail:req.user.email,
+                    status:'Pending'
+                }).then((item)=>{
+                    cb(null , item.dataValues.id+'.jpg')
+                    console.log('The file has been moved')
+                    const message = {
+                        from: 'varunbajlotra@gmail.com',
+                        to: req.user.email,
+                        subject: 'Request to Add Product at Inventory Management System',
+                        html: 'Dear <b>'+item.dataValues.user+'</b>, you have requested to add a product in our inventory with the following details:<br><br>'+
+                            '<b>Product Image</b><br><img src="cid:unique"/ width="200"><br>'+
+                            '<b>Product Name :</b> '+item.dataValues.name+'<br>'+
+                            '<b>Company Name :</b> '+item.dataValues.companyname+'<br>'+
+                            '<b>Cost Price :</b> '+item.dataValues.costprice+'<br>'+
+                            '<b>Quantity :</b> '+item.dataValues.quantity+'<br>'+
+                            '<b>Description :</b> '+item.dataValues.description+'<br><br>'+
+                            'We have received your product request and are currently processing it.<br>'+
+                            'We will inform you soon whether your Product Add Request was Accepted or Declined.<br><br>'+
+                            'Regards<br>'+
+                            'Inventory Management',
+                        attachments: [{
+                            filename: item.dataValues.id+'.jpg',
+                            path: './public/consumer/productimagestemp/'+item.dataValues.id+'.jpg',
+                            cid: 'unique'
+                        }]
+                    };
+                    transport.sendMail(message, function(err, info) {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            console.log(info);
+                        }
+                    });
+                }).catch((err)=>{
+                    console.log(err)
+                })
+              }
+});
+const uploadAdd = multer({
+    storage : storageAdd
+}).single('photo')
+
 route.post('/addproduct',(req,res)=>{
     if(!req.user){
         return res.redirect('/user/login')
     }
-    TempProducts.create({
-        name:req.body.name,
-        companyname:req.body.companyname,
-        costprice:req.body.costprice,
-        quantity:req.body.quantity,
-        description:req.body.description,
-        time:new Date().toLocaleString(),
-        user:req.user.username,
-        usermail:req.user.email,
-        status:'Pending'
-    }).then((item)=>{
-        setTimeout(()=>{
-            //For Varun
-            (async () => {
-                await moveFile('C:/Users/varun/Downloads/product.jpg', './public/consumer/productimagestemp/'+item.dataValues.id+'.jpg')
-                console.log('The file has been moved')
-                const message = {
-                    from: 'varunbajlotra@gmail.com',
-                    to: req.user.email,
-                    subject: 'Request to Add Product at Inventory Management System',
-                    html: 'Dear <b>'+item.dataValues.user+'</b>, you have requested to add a product in our inventory with the following details:<br><br>'+
-                          '<b>Product Image</b><br><img src="cid:unique"/ width="200"><br>'+
-                          '<b>Product Name :</b> '+item.dataValues.name+'<br>'+
-                          '<b>Company Name :</b> '+item.dataValues.companyname+'<br>'+
-                          '<b>Cost Price :</b> '+item.dataValues.costprice+'<br>'+
-                          '<b>Quantity :</b> '+item.dataValues.quantity+'<br>'+
-                          '<b>Description :</b> '+item.dataValues.description+'<br><br>'+
-                          'We have received your product request and are currently processing it.<br>'+
-                          'We will inform you soon whether your Product Add Request was Accepted or Declined.<br><br>'+
-                          'Regards<br>'+
-                          'Inventory Management',
-                    attachments: [{
-                        filename: item.dataValues.id+'.jpg',
-                        path: './public/consumer/productimagestemp/'+item.dataValues.id+'.jpg',
-                        cid: 'unique'
-                    }]
-                };
-                transport.sendMail(message, function(err, info) {
-                    if (err) {
-                        console.log(err)
-                    } else {
-                        console.log(info);
-                    }
-                });
-            })();
-            // For Vaibhav
-            // (async () => {
-            //     await moveFile(Location of photo in downloads, './public/consumer/productimagestemp/'+item.dataValues.id+'.jpg')
-            //     console.log('The file has been moved')
-            //     const message = {
-            //         from: 'varunbajlotra@gmail.com',
-            //         to: req.user.email,
-            //         subject: 'Request to Add Product at Inventory Management System',
-            //         html: 'Dear <b>'+item.dataValues.user+'</b>, you have requested to add a product in our inventory with the following details:<br><br>'+
-            //             '<b>Product Image</b><br><img src="cid:unique"/ width="200"><br>'+
-            //             '<b>Product Name :</b> '+item.dataValues.name+'<br>'+
-            //             '<b>Company Name :</b> '+item.dataValues.companyname+'<br>'+
-            //             '<b>Cost Price :</b> '+item.dataValues.costprice+'<br>'+
-            //             '<b>Quantity :</b> '+item.dataValues.quantity+'<br>'+
-            //             '<b>Description :</b> '+item.dataValues.description+'<br><br>'+
-            //             'We have received your product request and are currently processing it.<br>'+
-            //             'We will inform you soon whether your Product Add Request was Accepted or Declined.<br><br>'+
-            //             'Regards<br>'+
-            //             'Inventory Management',
-            //         attachments: [{
-            //             filename: item.dataValues.id+'.jpg',
-            //             path: './public/consumer/productimagestemp/'+item.dataValues.id+'.jpg',
-            //             cid: 'unique'
-            //         }]
-            //     };
-            //     transport.sendMail(message, function(err, info) {
-            //         if (err) {
-            //             console.log(err)
-            //         } else {
-            //             console.log(info);
-            //         }
-            //     });
-            // })();
-        },2000)
-        res.redirect('/user/profile')
-    }).catch((err)=>{
-        console.log(err)
+    uploadAdd(req,res,(err)=>{
+        if(err){
+            console.log(err)
+        }
+        
         res.redirect('/user/profile')
     })
 })

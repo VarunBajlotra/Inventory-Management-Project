@@ -59,7 +59,7 @@
             
             </ul>
         </div>
-    </nav>
+    </nav><br><br>
 
 
     
@@ -215,7 +215,6 @@
                     <tr>
                         <td class="username text-center">{{item.username}}</td>
                         <td class="email text-center">{{item.email}}</td>
-                        
                     </tr>
                 {{/each}}
                    
@@ -386,8 +385,9 @@
     {{!---------------------------------------------------------------------------------Add Product---------------------------------------------------------------------------------}}
 
     <div class="container" id="add">
-        <script src="../../admin/addproduct/script.js"></script>
-        <form action="/product/add" method="POST" class="bg-white add">
+        {{!-- <script src="../../admin/addproduct/script.js"></script> --}}
+        <h2 class="text-white text-center" style="width: fit-content;">Add Product</h2>
+        <form action="/product/add" method="POST" class="bg-white add" enctype="multipart/form-data">
             Name: <input type="text" name="name" id="name"><br><br>
             Company Name: <input type="text" name="companyname"><br><br>
             Cost Price: <input type="number" name="costprice"><br><br>
@@ -398,7 +398,7 @@
             <button type="submit" id="submit" class="btn red darken-2">Add Product</button>
         </form>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="../../consumer/profile/addProd.js"></script>
+        {{!-- <script src="../../consumer/profile/addProd.js"></script> --}}
     </div>
 </body>
     <link rel="stylesheet" href="../../admin/profile/style.css">

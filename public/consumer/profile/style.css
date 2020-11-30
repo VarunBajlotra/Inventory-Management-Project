@@ -59,6 +59,8 @@ h2{
     height: 10%;
     /* border-top: 2px solid rgb(253, 252, 251); */
     border-bottom: 2px solid rgb(253, 252, 251);
+    position: fixed;
+    z-index: 1000;
 }
 
 .navbarBrand{
